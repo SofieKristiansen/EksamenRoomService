@@ -24,19 +24,78 @@ require "settings/init.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body class="bg-baggrundsfarve">
+<body>
 
 <?php
 include("navbar.php");
 ?>
 
-<div class="container">
+<div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1;">
+    <img src="img/blossom.png" alt="background" class="position-absolute top-0 start-0 w-100 h-100" style="object-fit: cover;">
+</div>
+
+<div class="container-fluid">
     <div class="row">
+        <div class="col-1"></div>
+
         <div class="col-10">
-            test
+            <div class="display-1 mt-5 pt-5 overskrift text-primærtekstfarve fw-medium">Hotel Strandparken</div>
         </div>
+
+        <div class="col-1"></div>
     </div>
 </div>
+
+
+<div class="container-fluid mt-5 pt-5">
+    <div class="row">
+        <div class="col-1"></div>
+
+        <div class="col-10 overskrift text-primærtekstfarve">
+
+            <?php
+            $sql = "SELECT * FROM kategorier";
+            $kategorier = $db->sql($sql);
+            foreach($kategorier as $kategori) {
+                ?>
+                <div class="kategori mb-5 d-flex">
+                    <div class="row w-100">
+                        <div class="col-6">
+                            <h2 class="display-3 fw-medium"><?php echo $kategori->kateNavn ?></h2>
+                        </div>
+                        <div class="col-6 fs-1 text-end fw-bolder">
+                            <p><?php echo $kategori->kateTider; ?></p>
+                        </div>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
+
+        </div>
+
+        <div class="col-1"></div>
+    </div>
+</div>
+
+
+
+<footer class="footer bg-sekundærfarve fixed-bottom">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-1"></div>
+
+            <div class="col-10">
+                <p class="pt-4 pb-3 fs-4 fw-medium text-primærtekstfarve">Ved bestilling af roomservice ønsker vi at imødekomme dine individuelle behov og præferencer så godt som muligt.
+                    Vær venlig at angive eventuelle allergier eller kostrestriktioner, så vores personale kan sikre, at din madoplevelse er både lækker og sikker.</p>
+            </div>
+
+            <div class="col-1"></div>
+        </div>
+    </div>
+</footer>
+
+
 
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
