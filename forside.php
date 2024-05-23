@@ -63,7 +63,7 @@ include("navbar.php");
                         <div class="col-6">
                             <h2 class="display-3 fw-medium"><?php echo $kategori->kateNavn ?></h2>
                         </div>
-                        <div class="col-6 fs-1 text-end fw-bolder">
+                        <div class="col-6 fs-1 text-end fw-bolder overskrift">
                             <p><?php echo $kategori->kateTider; ?></p>
                         </div>
                     </div>
@@ -86,7 +86,7 @@ include("navbar.php");
             <div class="col-1"></div>
 
             <div class="col-10">
-                <p class="pt-4 pb-3 fs-4 fw-medium text-primærtekstfarve">Ved bestilling af roomservice ønsker vi at imødekomme dine individuelle behov og præferencer så godt som muligt.
+                <p class="pt-4 pb-3 fs-4 fw-bold text-primærtekstfarve brødtekst">Ved bestilling af roomservice ønsker vi at imødekomme dine individuelle behov og præferencer så godt som muligt.
                     Vær venlig at angive eventuelle allergier eller kostrestriktioner, så vores personale kan sikre, at din madoplevelse er både lækker og sikker.</p>
             </div>
 
