@@ -39,3 +39,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 .overskrift{
 	font-family: "Playfair Display", Serif;
 }
+
+.lukkeknap{
+	font-size: 2.5rem;
+}
