@@ -10,7 +10,16 @@ $link-decoration: none;
 
 // 4. Include any default map overrides here
 $custom-colors: (
-	"farve": $cyan-400,
+	"primærfarve": #183909,
+	"sekundærfarve": #b4a9b2,
+	"baggrundsfarve": #e6e1e1,
+	"primærtekstfarve": #183909,
+	"sekundærtekstfarve": #ffffff,
+	"primærknap": #183909,
+	"sekundærknap": #ffffff,
+	"outlinefarve": #183909,
+	"kortfarve": #D4CDD2,
+
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
@@ -18,3 +27,4 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @import "bootstrapComponents";
 
 // 5. Du kan lave styling her...
+
