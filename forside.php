@@ -26,6 +26,10 @@ require "settings/init.php";
 
 <body class="bg-baggrundsfarve">
 
+<?php
+include("navbar.php");
+?>
+
 <div class="container">
     <div class="row">
         <div class="col-10">
