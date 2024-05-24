@@ -115,7 +115,7 @@ include("tilbagepil.php");
                                         <div class="btn bg-white border-outlinefarve fs-1 d-flex justify-content-between brødtekst text-primærtekstfarve ps-4 pe-4"
                                              style="border-radius: 70px; width: 100%">
                                             <div class="minus">-</div>
-                                            <div class="tal">0</div>
+                                            <div class="tal">1</div>
                                             <div class="plus">+</div>
                                         </div>
                                     </div>
@@ -123,8 +123,8 @@ include("tilbagepil.php");
 
                                 <div class="d-flex justify-content-between align-items-center mb-3">
 
-                                    <div class="brødtekst text-primærtekstfarve fs-2 fw-bold">
-                                        <?php echo $produkt->prodPris; ?> kr.
+                                    <div class="brødtekst text-primærtekstfarve fs-2 fw-bold" id="pris">
+                                        <?php echo number_format($produkt->prodPris, 2); ?> kr.
                                     </div>
 
                                     <div>
@@ -153,6 +153,49 @@ include("tilbagepil.php");
 
     <div class="col-1"></div>
 </div>
+
+
+
+<script>
+
+    const minus = document.querySelector(".minus");
+    const plus = document.querySelector(".plus");
+    const tal = document.querySelector(".tal");
+    const prisElement = document.querySelector("#pris");
+
+    // Gem den oprindelige pris som en attribut på knappen
+    const oprindeligPris = Number(prisElement.textContent.replace(" kr.", "").replace(",", "."));
+    tal.dataset.oprindeligPris = oprindeligPris;
+
+    const opdaterPris = () => {
+        const antal = Number(tal.textContent);
+        const oprindeligPris = Number(tal.dataset.oprindeligPris);
+        const nyPris = (oprindeligPris * antal).toFixed(2);
+        prisElement.textContent = `${nyPris} kr.`;
+    };
+
+    minus.addEventListener("click", () => {
+        const glTal = Number(tal.textContent);
+        if (glTal > 1) {
+            let nytTal = glTal - 1;
+            tal.textContent = nytTal;
+            opdaterPris();
+        }
+    });
+
+    plus.addEventListener("click", () => {
+        const glTal = Number(tal.textContent);
+        if (glTal < 15) {
+            let nytTal = glTal + 1;
+            tal.textContent = nytTal;
+            opdaterPris();
+        }
+    });
+
+
+
+
+</script>
 
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
