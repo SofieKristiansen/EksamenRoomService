@@ -6,7 +6,7 @@
 
             <div class="col-1">
             <a href="javascript:history.back()" class="pt-3">
-                <img src="img/tilbagepil.png" class="img-fluid" alt="Tilbagepil">
+                <img src="img/" class="img-fluid" alt="Tilbagepil">
             </a>
             </div>
 
