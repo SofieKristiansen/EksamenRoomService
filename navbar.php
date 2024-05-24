@@ -18,7 +18,7 @@
 
                     <div class="d-flex align-items-center">
                         <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#sprogModal">
-                            <img src="#" alt="" class="img-fluid"> Sprog
+                            <img src="img/Indkøbskurv.webp" alt="" class="img-fluid col-1">
                         </a>
                         <a href="#" class="ms-4">
                             <img src="#" alt="" class="img-fluid"> Kurv

@@ -8,12 +8,6 @@ require "settings/init.php";
 
     <title>Sigende titel</title>
 
-    <style>
-        .container{
-            width: 1024px;
-            height: 1366px;
-        }
-    </style>
 
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
