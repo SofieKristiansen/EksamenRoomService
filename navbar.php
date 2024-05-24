@@ -11,17 +11,15 @@
             <div class="col-10">
                 <div class="d-flex justify-content-between display-3 brødtekst">
                     <div class="">
-                        <a href="#" class="d-flex">
-                            <img src="#" alt="" class="img-fluid"> Logo
-                        </a>
+                        <a href="forside.php" ><img src="#" alt="" class="img-fluid">Logo</a>
                     </div>
 
-                    <div class="d-flex align-items-center">
-                        <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#sprogModal">
-                            <img src="img/Indkøbskurv.webp" alt="" class="img-fluid col-1">
+                    <div class="ms-auto">
+                        <a href="#" class="" data-bs-toggle="modal" data-bs-target="#sprogModal">
+                            <img src="img/globus.webp" alt="" class="img-fluid col-1 " style="width: 30px">
                         </a>
                         <a href="#" class="ms-4">
-                            <img src="#" alt="" class="img-fluid"> Kurv
+                            <img src="img/Indkøbskurv.webp" alt="" class="img-fluid col-1" style="width: 30px">
                         </a>
                     </div>
                 </div>
