@@ -83,19 +83,15 @@ include("tilbagepil.php");
                 ?>
                 <div class="col-6 ">
                     <div class="card w-100 mt-5 bg-kortfarve ps-2 pt-3 pb-3" style="border-radius: 55px;">
-                        <div class="card-header brødtekst text-primærtekstfarve fs-1 pb-3">
+                        <div class="card-header brødtekst text-primærtekstfarve fs-1 fw-bold pb-3">
                             <?php
                             echo $produkt->prodNavn;
                             ?>
                         </div>
                         <div class="card-body">
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
+
+                            <img src="img/AvocadoMad-kopi.jpg" class="img-fluid prodbillede">
+
                             <?php
                             // Billede
                             ?>

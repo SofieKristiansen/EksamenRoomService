@@ -43,3 +43,10 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 .lukkeknap{
 	font-size: 2.5rem;
 }
+
+.prodbillede{
+	height: 100px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
