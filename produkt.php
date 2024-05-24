@@ -65,43 +65,66 @@ include("tilbagepil.php");
         <div class="col-1"></div>
 
         <div class="col-10">
-                <div class="col-6 ">
-                        <div class="card shadow bg-kortfarve pt-4 pb-3" style="border-radius: 70px;">
+            <div class="row g-5">
 
-
-
-                            <div class="card-body">
-                                <div class="brødtekst text-primærtekstfarve fs-1 fw-bold">Ingredientliste</div>
-
-                                <?php
-
-                                $sql = "SELECT * FROM produkter INNER JOIN ingredienser ON ingrProdukterId = prodId ORDER BY ingrNavn ASC";
-                                $produkter = $db->sql($sql, $bind);
-                                foreach($produkter as $produkt) {
-
-                                ?>
-
-                                <ul class="brødtekst text-primærtekstfarve fs-2 pt-4">
-                                   <li><?php echo $produkt-> ingrNavn?></li>
-                                </ul>
-
-
+                <div class="col-6">
+                    <div class="card shadow bg-kortfarve pt-2 ps-3 pb-1" style="border-radius: 70px;">
+                        <div class="card-body">
+                            <div class="brødtekst text-primærtekstfarve fs-1 fw-bold">Ingredienser</div>
                             <?php
+                            $sql = "SELECT * FROM produkter INNER JOIN ingredienser ON ingrProdukterId = prodId ORDER BY ingrNavn ASC";
+                            $produkter = $db->sql($sql, $bind);
+                            foreach($produkter as $produkt) {
+                                ?>
+                                <ul class="brødtekst text-primærtekstfarve fs-2 pt-4" style="line-height: 1;">
+                                    <li><?php echo $produkt->ingrNavn?></li>
+                                </ul>
+                                <?php
                             }
                             ?>
-                            <div class="d-flex justify-content-end pe-3">
+                            <div class="d-flex justify-content-end pe-3 pt-4">
                                 <a href="forside.php">
                                     <button type="button" class="btn shadow me-3 rounded-pill btn-primærknap fs-2 brødtekst" style="width: 150px;">Tilpas</button>
                                 </a>
                             </div>
                         </div>
+                    </div>
+                </div>
 
+                <div class="col-6">
+                    <?php
+                    $sql = "SELECT * FROM produkter INNER JOIN ingredienser ON ingrProdukterId = prodId ORDER BY ingrNavn ASC LIMIT 1";
+                    $produkter = $db->sql($sql, $bind);
+                    foreach($produkter as $produkt) {
+                        ?>
+                        <img src="img/<?php echo $produkt->prodBillede?>" class="img-fluid card-img-top" alt="" style="border-radius: 70px;">
+                        <?php
+                    }
+                    ?>
+
+                    <div class="col-12">
+                        <div class="card shadow bg-kortfarve pt-2 ps-3 pb-1" style="border-radius: 70px;">
+                            <div class="card-body">
+
+                                <div class="d-flex justify-content-end pe-3 pt-4">
+                                    <a href="forside.php">
+                                        <button type="button" class="btn shadow me-3 rounded-pill btn-primærknap fs-2 brødtekst" style="width: 150px;">Tilpas</button>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+
+                </div>
             </div>
         </div>
-    <div class="col-1"></div>
+
+        <div class="col-1"></div>
+    </div>
 </div>
+
+
 
 
 

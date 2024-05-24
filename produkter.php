@@ -81,7 +81,7 @@ include("tilbagepil.php");
             foreach($produkter as $produkt) {
                 ?>
                 <div class="col-6 ">
-                    <div class="card shadow w-100 bg-kortfarve pt-4 pb-3" style="border-radius: 70px;">
+                    <div class="card shadow bg-kortfarve pt-4 pb-3" style="border-radius: 70px;">
                         <div class="card-header brødtekst text-primærtekstfarve ps-4 fs-2 fw-bold pb-3">
                             <?php
                             echo $produkt->prodNavn;
