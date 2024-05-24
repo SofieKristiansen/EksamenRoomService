@@ -54,31 +54,34 @@ include("navbar.php");
         <div class="col-10 overskrift text-primærtekstfarve">
 
             <?php
-            $sql = "SELECT * FROM kategorier";
-            $kategorier = $db->sql($sql);
+            $sqlkategori = "SELECT * FROM kategorier";
+            $kategorier = $db->sql($sqlkategori);
             foreach($kategorier as $kategori) {
                 ?>
-                <div class="kategori mb-5 d-flex">
-                    <div class="row w-100">
-                        <div class="col-6">
-                            <h2 class="display-3 fw-medium"><?php echo $kategori->kateNavn ?></h2>
-                        </div>
-                        <div class="col-6 fs-1 text-end fw-bolder overskrift">
-                            <p><?php echo $kategori->kateTider; ?></p>
-                        </div>
-                    </div>
+
+                <div class="col-6">
+                    <a href="produkter.php?kategoriId=<?php echo $kategori->kateId?>"><h2 class="display-3 fw-medium"><?php echo $kategori->kateNavn?></h2></a>
                 </div>
+
                 <?php
             }
             ?>
-
         </div>
-
         <div class="col-1"></div>
     </div>
 </div>
 
+<?php
+if (!empty($_GET["kategoriId"])) {
+$kateId = $_GET["kategoriId"];
+$sqlAdd = " AND kateId = :kateId";
+$bind = [":kateId" => $kateId];
 
+    $sqlProdukter = "SELECT * FROM produkter" . $sqlAdd;
+    $produkter = $db->sql($sqlProdukter, $bind);
+
+}
+?>
 
 <footer class="footer bg-sekundærfarve fixed-bottom">
     <div class="container-fluid">
@@ -91,6 +94,7 @@ include("navbar.php");
             </div>
 
             <div class="col-1"></div>
+
         </div>
     </div>
 </footer>
