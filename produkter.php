@@ -40,7 +40,6 @@ include("tilbagepil.php");
 
             <?php
 
-
             $sql = "SELECT * FROM produkter INNER JOIN kategorier ON prodId = kateId ORDER BY kateNavn ASC LIMIT 1";
             $produkter = $db->sql($sql, $bind);
             foreach($produkter as $produkt) {
@@ -74,7 +73,7 @@ include("tilbagepil.php");
         <div class="col-1"></div>
 
         <div class="col-10">
-            <div class="row">
+            <div class="row g-5">
 
 
             <?php
@@ -82,30 +81,35 @@ include("tilbagepil.php");
             foreach($produkter as $produkt) {
                 ?>
                 <div class="col-6 ">
-                    <div class="card w-100 mt-5 bg-kortfarve ps-2 pt-3 pb-3" style="border-radius: 55px;">
-                        <div class="card-header brødtekst text-primærtekstfarve fs-1 fw-bold pb-3">
+                    <div class="card shadow w-100 bg-kortfarve pt-4 pb-3" style="border-radius: 70px;">
+                        <div class="card-header brødtekst text-primærtekstfarve ps-4 fs-2 fw-bold pb-3">
                             <?php
                             echo $produkt->prodNavn;
                             ?>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body p-0 m-0">
 
-                            <img src="img/AvocadoMad-kopi.jpg" class="img-fluid prodbillede">
+                            <img src="img/<?php echo $produkt -> prodBillede?>" class="img-fluid card-img-top" alt="">
 
                             <?php
-                            // Billede
-                            ?>
-                        </div>
-                        <div class="card-footer text-muted ">
-                            <div class=" fs-1 text-primærtekstfarve brødtekst pt-3">Pris</div>
 
-                            <div class="hstack justify-content-between fs-1 brødtekst text-primærtekstfarve fw-bold">
+                            ?>
+                            <a href="#">
+                            <button type="button" class="btn btn-secondary brødtekst rounded-circle bg-primærknap d-flex align-items-center justify-content-center" style="position: absolute; top: -15px; right: -10px; width: 70px; height: 70px; font-size: 55px;">+</button>
+                            </a>
+
+                        </div>
+
+                        <div class="card-footer">
+                            <div class="fs-1 fw- text-primærtekstfarve brødtekst pt-2 ps-1">Pris</div>
+
+                            <div class="hstack justify-content-between fs-1 ps-1 brødtekst text-primærtekstfarve fw-bold">
                             <?php
                             echo $produkt->prodPris;
                             ?>
 
                             <div class="">
-                                <a href="forside.php"><button type="button" class="btn me-3 rounded-pill btn-primærknap fs-2 brødtekst" style="width: 150px;">Se mere</button></a>
+                                <a href="forside.php"><button type="button" class="btn shadow me-3 rounded-pill btn-primærknap fs-2 brødtekst" style="width: 150px;">Se mere</button></a>
                             </div>
 
                             </div>
