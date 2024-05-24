@@ -103,13 +103,13 @@ include("tilbagepil.php");
                         <div class="card-footer">
                             <div class="fs-1 fw- text-primærtekstfarve brødtekst pt-2 ps-1">Pris</div>
 
-                            <div class="hstack justify-content-between fs-1 ps-1 brødtekst text-primærtekstfarve fw-bold">
+                            <div class="hstack justify-content-between fs-2 ps-1 brødtekst text-primærtekstfarve fw-bold">
                             <?php
                             echo $produkt->prodPris;
-                            ?>
+                            ?> kr.
 
                             <div class="">
-                                <a href="forside.php"><button type="button" class="btn shadow me-3 rounded-pill btn-primærknap fs-2 brødtekst" style="width: 150px;">Se mere</button></a>
+                                <a href="produkt.php?kategoriId="><button type="button" class="btn shadow me-3 rounded-pill btn-primærknap fs-2 brødtekst" style="width: 150px;">Se mere</button></a>
                             </div>
 
                             </div>
