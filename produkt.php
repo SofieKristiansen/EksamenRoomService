@@ -167,7 +167,7 @@ include("tilbagepil.php");
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve" data-bs-dismiss="modal" style="width: 150px;">Bestil mere</button>
+                <a href="forside.php" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve" style="width: 150px;">Bestil mere</a>
                 <button type="button" class="btn btn-primary btn-lg rounded-pill btn-primærknap" data-bs-dismiss="modal" style="width: 150px;">Gå til kurv</button>
             </div>
 
@@ -207,11 +207,7 @@ include("tilbagepil.php");
         }
     });
 
-
-
-
 </script>
-
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
