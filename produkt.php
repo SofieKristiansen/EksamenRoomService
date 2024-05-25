@@ -129,10 +129,9 @@ include("tilbagepil.php");
 
                                     <div>
                                         <a href="#">
-                                            <button type="button"
-                                                    class="btn btn-lg shadow rounded-pill btn-primærknap fs-3 brødtekst">
-                                                Læg i kurv
-                                            </button>
+                                        <button type="button" class="btn btn-lg shadow rounded-pill btn-primærknap fs-3 brødtekst ms-3" data-bs-toggle="modal" data-bs-target="#modal<?php echo $kategori->kateId ?>">
+                                            Læg i kurv
+                                        </button>
                                         </a>
                                     </div>
                                 </div>
@@ -154,7 +153,23 @@ include("tilbagepil.php");
     <div class="col-1"></div>
 </div>
 
+<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-outlinefarve">
 
+            <div class="modal-header">
+                <h5 class="modal-title text-primærtekstfarve" id="exampleModalLabel">Din bestilling</h5>
+                <button type="button" class="btn-close btn-close-primærfarve lukkeknap" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <p class="fs-2 text-primærtekstfarve brødtekst"></p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve" data-bs-dismiss="modal" style="width: 150px;">Bestil mere</button>
+                <button type="button" class="btn btn-primary btn-lg rounded-pill btn-primærknap" data-bs-dismiss="modal" style="width: 150px;">Gå til kurv</button>
+            </div>
 
 <script>
 
