@@ -86,7 +86,7 @@ include("tilbagepil.php");
                     <?php echo number_format($produkt->prodPris, 2); ?> kr.
                 </div>
 
-                <a href="#">
+                <a href="DinBetaling.php">
                     <button type="button" class="btn btn-lg shadow rounded-pill btn-primærknap fs-3 brødtekst ms-3 me-5">
                         Fortsæt
                     </button>
