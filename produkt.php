@@ -183,35 +183,35 @@ include("tilbagepil.php");
                 <button type="button" class="btn-close btn-close-primærfarve lukkeknap" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h5 class="modal-title text-primærtekstfarve pb-4" id="tilpasModalLabel">Tilpas din bestilling</h5>
+                <h5 class="modal-title text-primærtekstfarve fs-2 brødtekst pb-4" id="tilpasModalLabel">Tilpas din bestilling</h5>
                 <?php
                 $sql = "SELECT * FROM produkter INNER JOIN ingredienser ON ingrProdukterId = prodId ORDER BY ingrNavn ASC";
                 $produkter = $db->sql($sql, $bind);
                 foreach ($produkter as $index => $produkt) {
                     ?>
                     <div>
-                        <p class="d-inline-flex gap-1">
-                            <button class="btn btn-sekundærknap brødtekst border-outlinefarve toggle-collapse" style="border-radius: 70px; width: 250px; height: 50px" type="button" data-target="#collapse<?php echo $index ?>">
+                        <p class="d-inline-flex gap-1 align-items-center">
+                            <button class="btn btn-sekundærknap brødtekst text-primærtekstfarve border-outlinefarve fs-4 toggle-collapse" style="border-radius: 70px; width: 250px; height: 50px" type="button" data-target="#collapse<?php echo $index ?>">
                                 <?php echo $produkt->ingrNavn ?>
                             </button>
+                            <span class="ms-5 brødtekst text-primærtekstfarve fs-4">+ 8 kr.</span>
                         </p>
-                        <div class="collapse" id="collapse<?php echo $index ?>">
-                            <div class="card card-body border-outlinefarve" style="border-radius: 70px">
-                                <div class="btn bg-white fs-1 d-flex justify-content-between brødtekst text-primærtekstfarve ps-4 pe-4" style="border-radius: 70px; width: 100%">
+                        <div class="collapse mb-2" id="collapse<?php echo $index ?>">
+                            <div class="card card-body border-outlinefarve d-flex align-items-center justify-content-center" style="border-radius: 70px; width: 250px; height: 55px">
+                                <div class="btn bg-white fs-4 d-flex justify-content-between brødtekst text-primærtekstfarve ps-4 pe-4" style="border-radius: 70px; width: 100%;">
                                     <div class="minus">-</div>
                                     <div class="tal">1</div>
                                     <div class="plus">+</div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <?php
                 }
                 ?>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve" style="width: 150px;">Annuller</a>
-                <a href="#" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve" style="width: 150px;">Gem</a>
+                <a href="#" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap brødtekst text-primærtekstfarve border-outlinefarve" style="width: 150px;">Annuller</a>
+                <a href="#" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap brødtekst text-sekundærekstfarve border-outlinefarve" style="width: 150px;">Gem</a>
             </div>
         </div>
     </div>
