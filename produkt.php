@@ -171,7 +171,7 @@ include("tilbagepil.php");
 
             <div class="modal-footer">
                 <a href="forside.php" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve" style="width: 150px;">Bestil mere</a>
-                <a href="Indkøbskurv.php" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve" style="width: 150px;">Gå til kurv</a>
+                <a href="forside.php" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve" style="width: 150px;">Bestil mere</a>
             </div>
 
 <script>
