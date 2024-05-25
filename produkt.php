@@ -144,7 +144,7 @@ include("tilbagepil.php");
                 <div class="col-12">
                     <div class="card shadow bg-kortfarve pt-2 ps-3 pb-1" style="border-radius: 70px;">
                         <div class="card-body">
-                            <img src="img/StopMadspil.png" style="height: 100px; width: auto;>
+                            <img src="img/StopMadspil.png" alt="" style="height: 100px; width: auto;">
                         </div>
                     </div>
                 </div>
@@ -173,6 +173,10 @@ include("tilbagepil.php");
                 <a href="forside.php" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve" style="width: 150px;">Bestil mere</a>
                 <a href="Indkøbskurv.php" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve" style="width: 150px;">Gå til kurv</a>
             </div>
+        </div>
+    </div>
+</div>
+
 
 <script>
 
