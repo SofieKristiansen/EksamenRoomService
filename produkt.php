@@ -141,13 +141,16 @@ include("tilbagepil.php");
                     </div>
                 </div>
 
+                <div class="col-12">
+                    <div class="card shadow bg-kortfarve pt-2 ps-3 pb-1" style="border-radius: 70px;">
+                        <div class="card-body">
+                            <img src="img/StopMadspil.png" style="height: 100px; width: auto;>
+                        </div>
+                    </div>
+                </div>
 
             </div>
-
-
-
         </div>
-
     </div>
 
     <div class="col-1"></div>
