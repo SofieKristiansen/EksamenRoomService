@@ -129,7 +129,7 @@ include("tilbagepil.php");
 
                                     <div>
                                         <a href="#">
-                                        <button type="button" class="btn btn-lg shadow rounded-pill btn-primærknap fs-3 brødtekst ms-3" data-bs-toggle="modal" data-bs-target="#modal<?php echo $kategori->kateId ?>">
+                                        <button type="button" class="btn btn-lg shadow rounded-pill btn-primærknap fs-3 brødtekst ms-3" data-bs-toggle="modal" data-bs-target="#modal">
                                             Læg i kurv
                                         </button>
                                         </a>
