@@ -84,10 +84,8 @@ include("tilbagepil.php");
                             ?>
                             <div class="d-flex justify-content-end pe-3 pt-4">
                                 <a href="#">
-                                    <button type="button"
-                                            class="btn shadow me-3 rounded-pill btn-primærknap fs-2 brødtekst"
-                                            style="width: 150px;">Tilpas
-                                    </button>
+                                    <button type="button" class="btn shadow me-3 rounded-pill btn-primærknap fs-2 brødtekst" style="width: 150px;" data-bs-toggle="modal" data-bs-target="#tilpasModal">
+                                        Tilpas</button>
                                 </a>
                             </div>
                         </div>
@@ -178,7 +176,62 @@ include("tilbagepil.php");
 </div>
 
 
+<div class="modal fade" id="tilpasModal" tabindex="-1" aria-labelledby="tilpasModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-outlinefarve">
+            <div class="modal-header">
+                <button type="button" class="btn-close btn-close-primærfarve lukkeknap" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h5 class="modal-title text-primærtekstfarve pb-4" id="tilpasModalLabel">Tilpas din bestilling</h5>
+                <?php
+                $sql = "SELECT * FROM produkter INNER JOIN ingredienser ON ingrProdukterId = prodId ORDER BY ingrNavn ASC";
+                $produkter = $db->sql($sql, $bind);
+                foreach ($produkter as $index => $produkt) {
+                    ?>
+                    <div>
+                        <p class="d-inline-flex gap-1">
+                            <button class="btn btn-sekundærknap brødtekst border-outlinefarve toggle-collapse" style="border-radius: 70px; width: 250px; height: 50px" type="button" data-target="#collapse<?php echo $index ?>">
+                                <?php echo $produkt->ingrNavn ?>
+                            </button>
+                        </p>
+                        <div class="collapse" id="collapse<?php echo $index ?>">
+                            <div class="card card-body border-outlinefarve" style="border-radius: 70px">
+                                <div class="btn bg-white fs-1 d-flex justify-content-between brødtekst text-primærtekstfarve ps-4 pe-4" style="border-radius: 70px; width: 100%">
+                                    <div class="minus">-</div>
+                                    <div class="tal">1</div>
+                                    <div class="plus">+</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve" style="width: 150px;">Annuller</a>
+                <a href="#" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve" style="width: 150px;">Gem</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
+    document.querySelectorAll('.toggle-collapse').forEach(button => {
+        button.addEventListener('click', function() {
+            var target = document.querySelector(this.getAttribute('data-target'));
+            if (target.classList.contains('show')) {
+                target.classList.remove('show');
+            } else {
+                document.querySelectorAll('.collapse.show').forEach(openCollapse => {
+                    openCollapse.classList.remove('show');
+                });
+                target.classList.add('show');
+            }
+        });
+    });
+
 
     const minus = document.querySelector(".minus");
     const plus = document.querySelector(".plus");
