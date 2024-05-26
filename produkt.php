@@ -233,6 +233,7 @@ include("tilbagepil.php");
 
 
 <script>
+
     document.querySelectorAll('.toggle-collapse').forEach(button => {
         button.addEventListener('click', function() {
             var target = document.querySelector(this.getAttribute('data-target'));
@@ -281,6 +282,10 @@ include("tilbagepil.php");
             opdaterPris();
         }
     });
+
+
+
+
 
 </script>
 

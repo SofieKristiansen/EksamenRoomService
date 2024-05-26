@@ -18,9 +18,13 @@
                         <a href="#" class="" data-bs-toggle="modal" data-bs-target="#sprogModal">
                             <img src="img/globus.webp" alt="" class="img-fluid col-1 " style="width: 50px">
                         </a>
-                        <a href="Indkøbskurv.php" class="ms-4">
-                            <img src="img/Indkøbskurv.webp" alt="" class="img-fluid col-1" style="width: 50px">
+                        <a href="Indkøbskurv.php" class="ms-4 position-relative">
+                            <img src="img/Indkøbskurv.webp" alt="Indkøbskurv" class="img-fluid col-1" style="width: 50px">
+                            <span id="cart-badge" class="position-absolute top-25 start-100 translate-middle badge bg-baggrundsfarve rounded-circle">
+                               <span class="visually-hidden">
+                             </span>
                         </a>
+
                     </div>
                 </div>
             </div>
@@ -64,6 +68,7 @@
         </div>
     </div>
 </div>
+
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
