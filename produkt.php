@@ -101,9 +101,11 @@ include("tilbagepil.php");
 
                 <div class="col-6">
 
+
+
                     <?php
-                    $sql = "SELECT * FROM produkter INNER JOIN ingredienser ON ingrProdukterId = prodId ORDER BY ingrNavn ASC LIMIT 1";
-                    $produkter = $db->sql($sql, $bind);
+                    $sql = "SELECT * FROM produkter WHERE prodId = :prodId";
+                    $produkter = $db->sql($sql, [':prodId' => $prodId]);
                     foreach ($produkter as $produkt) {
                         ?>
                         <img src="img/<?php echo $produkt->prodProduktBillede ?>" class="img-fluid card-img-top pb-5"
@@ -167,7 +169,8 @@ include("tilbagepil.php");
         <div class="modal-content border-outlinefarve">
 
             <div class="modal-header">
-                <h5 class="modal-title text-primærtekstfarve" id="exampleModalLabel">Din bestilling</h5>
+                <div class="modal-title text-primærtekstfarve" id="exampleModalLabel"></div>
+                <p class="">Din bestilling</p>
                 <button type="button" class="btn-close btn-close-primærfarve lukkeknap" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -182,6 +185,7 @@ include("tilbagepil.php");
         </div>
     </div>
 </div>
+
 
 
 <div class="modal fade" id="tilpasModal" tabindex="-1" aria-labelledby="tilpasModalLabel" aria-hidden="true">
