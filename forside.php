@@ -54,7 +54,10 @@ include("navbar.php");
                 ?>
 
                 <div class="col-6 hstack">
-                    <img src="img/<?php echo $kategori-> kateIkoner?>" style="width: 2em" height="auto"> <a href="produkter.php?kategoriId=<?php echo $kategori->kateId?>"><h2 class="display-3 fw-medium"><?php echo $kategori->kateNavn?></h2></a>
+                    <img src="img/<?php echo $kategori-> kateIkoner?>" style="width: 2em" height="auto">
+                    <a href="produkter.php?kategoriId=<?php echo $kategori->kateId?>">
+                        <h2 class="display-3 fw-medium"><?php echo $kategori->kateNavn?></h2>
+                    </a>
                 </div>
 
                 <?php
@@ -67,9 +70,9 @@ include("navbar.php");
 
 <?php
 if (!empty($_GET["kategoriId"])) {
-$kateId = $_GET["kategoriId"];
-$sqlAdd = " AND kateId = :kateId";
-$bind = [":kateId" => $kateId];
+    $kateId = $_GET["kategoriId"];
+    $sqlAdd = " AND kateId = :kateId";
+    $bind = [":kateId" => $kateId];
 
     $sqlProdukter = "SELECT * FROM produkter" . $sqlAdd;
     $produkter = $db->sql($sqlProdukter, $bind);
