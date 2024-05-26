@@ -150,12 +150,32 @@ include("tilbagepil.php");
                 </div>
 
                 <div class="col-12">
-                    <div class="card shadow bg-kortfarve pt-2 ps-3 pb-1" style="border-radius: 70px;">
-                        <div class="card-body">
-                            <img src="img/StopMadspil.png" alt="" style="height: 100px; width: auto;">
+                    <div class="card shadow bg-kortfarve pt-2 ps-3 pb-4" style="border-radius: 70px;">
+                        <div class="d-flex justify-content-between align-items-start">
+
+                            <div class="d-flex flex-column align-items-start me-5 ps-3 pt-4">
+                                <span class="brødtekst text-primærtekstfarve fs-4 fw-bold">Leveringstid</span>
+                                <img src="img/leveringstid.webp" class="mx-auto my-2" style="width: 50px; height:auto;">
+                                <span class="brødtekst text-primærtekstfarve fs-5 text-center w-100">20 minutter</span>
+                            </div>
+
+                            <div class="d-flex flex-column align-items-center me-5">
+                                <div class="col-12 text-center pt-4">
+                                    <span class="brødtekst text-primærtekstfarve fw-bold fs-4">Anmeldelser</span>
+                                </div>
+                                <img src="img/stjerner.webp" class="mx-auto my-2" style="width: auto; height:40px; margin: 10px 0;">
+                                <span class="brødtekst text-primærtekstfarve fs-5 text-center">(4.5/5 baseret på 20 anmeldelser)</span>
+                            </div>
+
+                            <div class="d-flex align-items-center pt-4 me-5" style="height: 140px;">
+                                <img src="img/StopMadspil.png" alt="" style="height: 140px; width: auto;">
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
+
 
             </div>
         </div>
