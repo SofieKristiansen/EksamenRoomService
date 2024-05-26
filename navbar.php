@@ -18,7 +18,7 @@
                         <a href="#" class="" data-bs-toggle="modal" data-bs-target="#sprogModal">
                             <img src="img/globus.webp" alt="" class="img-fluid col-1 " style="width: 50px">
                         </a>
-                        <a href="#" class="ms-4">
+                        <a href="Indkøbskurv.php" class="ms-4">
                             <img src="img/Indkøbskurv.webp" alt="" class="img-fluid col-1" style="width: 50px">
                         </a>
                     </div>
