@@ -244,8 +244,8 @@ include("tilbagepil.php");
                 <?php } ?>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap brødtekst text-primærtekstfarve border-outlinefarve" style="width: 150px;">Annuller</a>
-                <a href="#" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap brødtekst text-sekundærekstfarve border-outlinefarve" style="width: 150px;">Gem</a>
+                <a href="produkt.php" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap brødtekst text-primærtekstfarve border-outlinefarve" style="width: 150px;">Annuller</a>
+                <a href="produkt.php" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap brødtekst text-sekundærekstfarve border-outlinefarve" style="width: 150px;">Gem</a>
             </div>
         </div>
     </div>
