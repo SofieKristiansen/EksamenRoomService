@@ -166,21 +166,23 @@ include("tilbagepil.php");
 
 <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-outlinefarve">
+        <div class="modal-content border-outlinefarve" style="border-radius: 30px">
 
             <div class="modal-header">
                 <div class="modal-title text-primærtekstfarve" id="exampleModalLabel"></div>
-                <p class="">Din bestilling</p>
                 <button type="button" class="btn-close btn-close-primærfarve lukkeknap" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <div class="modal-body">
-                <p class="fs-2 text-primærtekstfarve brødtekst"></p>
+            <div class="modal-body text-primærtekstfarve brødtekst">
+                <p class="fw-bold fs-1">Din bestilling</p>
+                <p class="fs-2 fw-medium"><?php echo $produkt->prodNavn; ?></p>
+                <p class="fs-2 fw-medium">Tilvalg:</p>
+                <p class="fs-2 fw-medium">Antal: </p>
             </div>
 
             <div class="modal-footer">
-                <a href="forside.php" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve" style="width: 150px;">Bestil mere</a>
-                <a href="Indkøbskurv.php" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve" style="width: 150px;">Gå til kurv</a>
+                <a href="forside.php" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve fs-4 fw-medium brødtekst" style="width: 160px;">Bestil mere</a>
+                <a href="Indkøbskurv.php" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve fs-4 fw-medium brødtekst" style="width: 160px;">Gå til kurv</a>
             </div>
         </div>
     </div>
@@ -231,6 +233,7 @@ include("tilbagepil.php");
 
 
 <script>
+
     document.querySelectorAll('.toggle-collapse').forEach(button => {
         button.addEventListener('click', function() {
             var target = document.querySelector(this.getAttribute('data-target'));
@@ -279,6 +282,10 @@ include("tilbagepil.php");
             opdaterPris();
         }
     });
+
+
+
+
 
 </script>
 
