@@ -53,10 +53,10 @@ include("navbar.php");
             foreach($kategorier as $kategori) {
                 ?>
 
-                <div class="col-6 hstack">
-                    <img src="img/<?php echo $kategori-> kateIkoner?>" style="width: 3em" height="auto" class="me-4">
+                <div class="col-6 hstack mb-4">
+                    <img src="img/<?php echo $kategori-> kateIkoner?>" style="width: 4em" class="me-4">
                     <a href="produkter.php?kategoriId=<?php echo $kategori->kateId?>">
-                        <h2 class="display-3 fw-medium"><?php echo $kategori->kateNavn?></h2>
+                        <h2 class="display-2 fw-medium"><?php echo $kategori->kateNavn?></h2>
                     </a>
                 </div>
 
