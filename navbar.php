@@ -43,25 +43,25 @@
                 <button type="button" class="btn-close btn-close-primærfarve lukkeknap" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <div class="modal-body">
-                <p class="fs-2 text-primærtekstfarve brødtekst">Hvilket sprog foretrækker du?</p>
-                <div class="form-check">
+            <div class="modal-body text-primærtekstfarve brødtekst">
+                <p class="fs-2 fw-bold mb-4">Hvilket sprog foretrækker du?</p>
+                <div class="form-check fs-3 mb-4">
                     <input class="form-check-input form-check-input" type="radio" name="sprog" id="dansk" value="dansk" checked>
                     <label class="form-check-label ms-2" for="dansk">Dansk</label>
                 </div>
-                <div class="form-check">
+                <div class="form-check fs-3 mb-4">
                     <input class="form-check-input" type="radio" name="sprog" id="english" value="english">
                     <label class="form-check-label ms-2" for="english">English</label>
                 </div>
-                <div class="form-check">
+                <div class="form-check fs-3 mb-4">
                     <input class="form-check-input" type="radio" name="sprog" id="deutsch" value="deutsch">
                     <label class="form-check-label ms-2" for="deutsch">Deutsch</label>
                 </div>
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve" data-bs-dismiss="modal" style="width: 150px;">Annuller</button>
-                <button type="button" class="btn btn-primary btn-lg rounded-pill btn-primærknap " data-bs-dismiss="modal" style="width: 150px;">Gem</button>
+                <button type="button" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve" data-bs-dismiss="modal" style="width: 160px;">Annuller</button>
+                <button type="button" class="btn btn-primary btn-lg rounded-pill btn-primærknap " data-bs-dismiss="modal" style="width: 160px;">Gem</button>
             </div>
 
         </div>
