@@ -207,41 +207,51 @@ include("tilbagepil.php");
 
 
 <div class="modal fade" id="tilpasModal" tabindex="-1" aria-labelledby="tilpasModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 600px;">
         <div class="modal-content border-outlinefarve">
             <div class="modal-header">
                 <button type="button" class="btn-close btn-close-primærfarve lukkeknap" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h5 class="modal-title text-primærtekstfarve fs-2 brødtekst pb-4" id="tilpasModalLabel">Tilpas din bestilling</h5>
+                <h5 class="modal-title text-primærtekstfarve fs-1 pb-5 brødtekst pb-4" id="tilpasModalLabel">Tilpas din bestilling</h5>
                 <?php
                 $sql = "SELECT * FROM ingredienser WHERE ingrProdukterId = :produktId ORDER BY ingrNavn ASC";
                 $bind = [":produktId" => $produkt->prodId];
                 $ingredienser = $db->sql($sql, $bind);
                 foreach ($ingredienser as $index => $ingrediens) {
                     ?>
-                    <div>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div class="dropdown" style="width: 300px;">
+                            <button class="btn btn-sekundærknap border-outlinefarve rounded-pill fs-2 brødtekst text-primærtekstfarve text-start ps-4 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
                                 <?php echo $ingrediens->ingrNavn ?>
                             </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <ul class="dropdown-menu p-0 m-0" style="width: 300px;">
+                                <li class="display-3 brødtekst d-flex justify-content-between align-items-center text-center">
+                                    <div class="dropdown-item text-primærtekstfarve">-</div>
+                                    <div class="dropdown-item text-primærtekstfarve">1</div>
+                                    <div class="dropdown-item text-primærtekstfarve">+</div>
+                                </li>
                             </ul>
                         </div>
+                        <div class="ms-3 fs-2 brødtekst text-primærtekstfarve">
+                           + <?php echo $ingrediens->ingrPris ?> kr
+                        </div>
                     </div>
-
                 <?php } ?>
             </div>
             <div class="modal-footer">
-                <a href="produkt.php" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap brødtekst text-primærtekstfarve border-outlinefarve" style="width: 150px;">Annuller</a>
-                <a href="produkt.php" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap brødtekst text-sekundærekstfarve border-outlinefarve" style="width: 150px;">Gem</a>
+                <a href="produkt.php" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap brødtekst text-primærtekstfarve border-outlinefarve" style="width: 160px;">Annuller</a>
+                <a href="produkt.php" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap brødtekst text-sekundærekstfarve border-outlinefarve" style="width: 160px;">Gem</a>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
+
+
 
 
 
