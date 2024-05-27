@@ -69,7 +69,7 @@ include("tilbagepil.php");
             <div class="row g-5">
 
                 <div class="col-6">
-                    <div class="card shadow bg-kortfarve pt-4 ps-3 pb-1" style="border-radius: 70px;">
+                    <div class="card shadow bg-kortfarve pt-4 ps-3 pb-1" style="border-radius: 70px; height: 690px;">
                         <div class="card-body">
                             <div class="brødtekst text-primærtekstfarve fs-1 fw-bold">Ingredienser</div>
                             <?php
