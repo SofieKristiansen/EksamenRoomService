@@ -44,25 +44,23 @@ include("navbar.php");
 <div class="container-fluid mt-5 pt-5">
     <div class="row">
         <div class="col-1"></div>
-
         <div class="col-10 overskrift text-primærtekstfarve">
-
-            <?php
-            $sqlkategori = "SELECT * FROM kategorier";
-            $kategorier = $db->sql($sqlkategori);
-            foreach($kategorier as $kategori) {
-                ?>
-
-                <div class="col-6 hstack mb-4">
-                    <img src="img/<?php echo $kategori->kateIkoner?>" alt="" style="width: 4em" class="me-4">
-                    <a href="produkter.php?kategoriId=<?php echo $kategori->kateId?>">
-                        <h2 class="display-2 fw-medium text-primærtekstfarve"><?php echo $kategori->kateNavn?></h2>
-                    </a>
-                </div>
-
+            <div class="d-flex flex-column align-items-start">
                 <?php
-            }
-            ?>
+                $sqlkategori = "SELECT * FROM kategorier";
+                $kategorier = $db->sql($sqlkategori);
+                foreach($kategorier as $kategori) {
+                    ?>
+                    <div class="d-flex align-items-center mb-4 w-100">
+                        <a href="produkter.php?kategoriId=<?php echo $kategori->kateId?>" class="text-decoration-none d-flex align-items-center w-100">
+                            <img src="img/<?php echo $kategori->kateIkoner?>" alt="" style="width: 4em;" class="me-4">
+                            <h2 class="display-2 fw-medium text-primærtekstfarve mb-0"><?php echo $kategori->kateNavn?></h2>
+                        </a>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
         </div>
         <div class="col-1"></div>
     </div>
