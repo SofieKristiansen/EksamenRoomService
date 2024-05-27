@@ -16,8 +16,37 @@ require "settings/init.php";
 
 <?php
 include("navbar.php");
-include("tilbagepil.php");
 ?>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex align-items-center">
+                <div>
+                    <?php include("tilbagepil.php") ?>
+                </div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb fs-2 mb-0 d-flex">
+                        <li class="breadcrumb-item"><a class="text-primærtekstfarve brødtekst" href="#">Forside</a></li>
+                        <?php
+                        $sql = "SELECT * FROM produkter ORDER BY prodKateBrødNavn LIMIT 1";
+                        $produkter = $db->sql($sql, $bind);
+                        foreach ($produkter as $produkt) {
+                            ?>
+                            <li class="breadcrumb-item text-primærtekstfarve brødtekst active" aria-current="page"><?php echo $prodKateBrødNavn; ?></li>
+                            <?php
+                        }
+                        ?>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 <div class="container-fluid mt-5">
     <div class="row">
