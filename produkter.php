@@ -18,32 +18,29 @@ require "settings/init.php";
 include("navbar.php");
 ?>
 
+<?php
+$sqlprodukt = "SELECT produkter.*, kategorier.kateNavn AS kategoriNavn FROM produkter INNER JOIN kategorier ON produkter.prodKateBrødID = kategorier.kateID";
+$produkter = $db->sql($sqlprodukt); // Rettede variabelnavn her
+foreach($produkter as $produkt) {
+    ?>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <div class="d-flex align-items-center">
-                <div>
-                    <?php include("tilbagepil.php") ?>
-                </div>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb fs-2 mb-0 d-flex">
-                        <li class="breadcrumb-item"><a class="text-primærtekstfarve brødtekst" href="#">Forside</a></li>
-                        <?php
-                        $sql = "SELECT * FROM produkter ORDER BY prodKateBrødNavn LIMIT 1";
-                        $produkter = $db->sql($sql, $bind);
-                        foreach ($produkter as $produkt) {
-                            ?>
-                            <li class="breadcrumb-item text-primærtekstfarve brødtekst active" aria-current="page"><?php echo $prodKateBrødNavn; ?></li>
-                            <?php
-                        }
-                        ?>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4">
+                <nav aria-label="breadcrumb" class="px-0 mx-0">
+                    <ol class="breadcrumb mt-5 px-0 mx-0">
+                        <li class="breadcrumb-item"><a class="text-white" href="index.php">Forside</a></li>
+                        <li class="breadcrumb-item"><a class="text-white" href="forside.php">Gulve</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page"><?php echo $produkt->kategoriNavn?></li>
                     </ol>
                 </nav>
             </div>
         </div>
     </div>
-</div>
+
+    <?php
+}
+?>
 
 
 
