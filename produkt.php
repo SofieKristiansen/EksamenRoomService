@@ -213,16 +213,18 @@ include("tilbagepil.php");
                 <button type="button" class="btn-close btn-close-primærfarve lukkeknap" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h5 class="modal-title text-primærtekstfarve fs-1 pb-5 brødtekst pb-4" id="tilpasModalLabel">Tilpas din bestilling</h5>
+                <div class="modal-title text-primærtekstfarve fs-1 brødtekst pb-4 fw-bold" id="tilpasModalLabel">Tilpas din bestilling</div>
+                <div class="text-primærtekstfarve fs-2 brødtekst pb-4 fw-medium"><?php echo $produkt->prodNavn; ?></div>
                 <?php
                 $sql = "SELECT * FROM ingredienser WHERE ingrProdukterId = :produktId ORDER BY ingrNavn ASC";
                 $bind = [":produktId" => $produkt->prodId];
                 $ingredienser = $db->sql($sql, $bind);
                 foreach ($ingredienser as $index => $ingrediens) {
                     ?>
+
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <div class="dropdown" style="width: 300px;">
-                            <button class="btn btn-sekundærknap border-outlinefarve rounded-pill fs-2 brødtekst text-primærtekstfarve text-start ps-4 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
+                            <button class="btn btn-sekundærknap border-outlinefarve rounded-pill fs-2 fw-bold brødtekst text-primærtekstfarve text-start ps-4 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
                                 <?php echo $ingrediens->ingrNavn ?>
                             </button>
                             <ul class="dropdown-menu p-0 m-0" style="width: 300px;">
@@ -233,7 +235,7 @@ include("tilbagepil.php");
                                 </li>
                             </ul>
                         </div>
-                        <div class="ms-3 fs-2 brødtekst text-primærtekstfarve">
+                        <div class="ms-3 fs-2 brødtekst text-primærtekstfarve fw-bold">
                            + <?php echo $ingrediens->ingrPris ?> kr
                         </div>
                     </div>
