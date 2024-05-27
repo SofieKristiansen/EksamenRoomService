@@ -54,7 +54,7 @@ include("navbar.php");
                 ?>
 
                 <div class="col-6 hstack mb-4">
-                    <img src="img/<?php echo $kategori-> kateIkoner?>" alt="" style="width: 4em" class="me-4">
+                    <img src="img/<?php echo $kategori->kateIkoner?>" alt="" style="width: 4em" class="me-4">
                     <a href="produkter.php?kategoriId=<?php echo $kategori->kateId?>">
                         <h2 class="display-2 fw-medium text-primærtekstfarve"><?php echo $kategori->kateNavn?></h2>
                     </a>
