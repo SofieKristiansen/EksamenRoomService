@@ -229,9 +229,9 @@ include("tilbagepil.php");
                             </button>
                             <ul class="dropdown-menu p-0 m-0" style="width: 300px;">
                                 <li class="display-3 brødtekst d-flex justify-content-between align-items-center text-center">
-                                    <div class="dropdown-item text-primærtekstfarve">-</div>
-                                    <div class="dropdown-item text-primærtekstfarve">1</div>
-                                    <div class="dropdown-item text-primærtekstfarve">+</div>
+                                    <div class="dropdown-item text-primærtekstfarve minus">-</div>
+                                    <div class="dropdown-item text-primærtekstfarve tal">1</div>
+                                    <div class="dropdown-item text-primærtekstfarve plus">+</div>
                                 </li>
                             </ul>
                         </div>
@@ -242,19 +242,12 @@ include("tilbagepil.php");
                 <?php } ?>
             </div>
             <div class="modal-footer">
-                <a href="produkt.php" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap brødtekst text-primærtekstfarve border-outlinefarve" style="width: 160px;">Annuller</a>
-                <a href="produkt.php" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap brødtekst text-sekundærekstfarve border-outlinefarve" style="width: 160px;">Gem</a>
+                <a href="#" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap brødtekst text-primærtekstfarve border-outlinefarve" style="width: 160px;">Annuller</a>
+                <a href="#" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap brødtekst text-sekundærekstfarve border-outlinefarve" style="width: 160px;">Gem</a>
             </div>
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
 
 
 <script>
@@ -262,6 +255,7 @@ include("tilbagepil.php");
 
 
 
+// Læg i kurv
 
     const minus = document.querySelector(".minus");
     const plus = document.querySelector(".plus");
@@ -297,6 +291,8 @@ include("tilbagepil.php");
         }
     });
 
+
+// Modalvindue tilføjelse
 
 
 
