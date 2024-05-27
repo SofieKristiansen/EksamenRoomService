@@ -80,7 +80,7 @@ include("navbar.php");
             <div class="row g-5">
 
                 <div class="col-6">
-                    <div class="card shadow bg-kortfarve pt-4 ps-3 pb-1" style="border-radius: 70px;">
+                    <div class="card shadow bg-kortfarve pt-4 ps-3 pb-1 position-relative" style="border-radius: 70px; height: 690px;">
                         <div class="card-body">
                             <div class="brødtekst text-primærtekstfarve fs-1 fw-bold">Ingredienser</div>
                             <?php
@@ -99,9 +99,9 @@ include("navbar.php");
                                 echo "<p>Ingen produktvalg fundet.</p>";
                             }
                             ?>
-                            <div class="d-flex justify-content-end pe-3 pt-4">
+                            <div class="position-absolute bottom-0 end-0 pe-3 pb-3">
                                 <a href="#">
-                                    <button type="button" class="btn shadow me-3 rounded-pill btn-primærknap fs-2 brødtekst" style="width: 150px;" data-bs-toggle="modal" data-bs-target="#tilpasModal">
+                                    <button type="button" class="btn btn-lg shadow rounded-pill btn-primærknap fs-3 brødtekst ms-3 mb-3" style="width: 150px;" data-bs-toggle="modal" data-bs-target="#tilpasModal">
                                         Tilpas
                                     </button>
                                 </a>
@@ -109,6 +109,7 @@ include("navbar.php");
                         </div>
                     </div>
                 </div>
+
 
                 <div class="col-6">
 

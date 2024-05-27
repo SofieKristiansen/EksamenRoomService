@@ -51,11 +51,12 @@ include("navbar.php");
                 $kategorier = $db->sql($sqlkategori);
                 foreach($kategorier as $kategori) {
                     ?>
-                    <div class="d-flex align-items-center mb-4 w-100">
-                        <a href="produkter.php?kategoriId=<?php echo $kategori->kateId?>" class="text-decoration-none d-flex align-items-center w-100">
+                    <div class="d-flex justify-content-between align-items-center mb-4 w-100">
+                        <a href="produkter.php?kategoriId=<?php echo $kategori->kateId?>" class="text-decoration-none d-flex align-items-center">
                             <img src="img/<?php echo $kategori->kateIkoner?>" alt="" style="width: 4em;" class="me-4">
                             <h2 class="display-2 fw-medium text-primærtekstfarve mb-0"><?php echo $kategori->kateNavn?></h2>
                         </a>
+                        <h2 class="fs-2 text-primærtekstfarve mb-0"><?php echo $kategori->kateTider?></h2>
                     </div>
                     <?php
                 }
@@ -65,6 +66,7 @@ include("navbar.php");
         <div class="col-1"></div>
     </div>
 </div>
+
 
 <footer class="footer bg-sekundærfarve fixed-bottom">
     <div class="container-fluid">
