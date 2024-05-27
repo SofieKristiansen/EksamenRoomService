@@ -70,7 +70,7 @@ include("tilbagepil.php");
                                         </div>
                                         <div class="card-footer">
                                             <div class="fs-1 fw- text-primærtekstfarve brødtekst fw-medium pt-3 ps-4">Pris</div>
-                                            <div class="hstack justify-content-between fs-2 ps-4 brødtekst text-primærtekstfarve fw-bold">
+                                            <div class="hstack justify-content-between fs-2 ps-4 brødtekst text-primærtekstfarve fw-bold" style="margin-top: -20px">
                                                 <?php echo $produkt->prodPris; ?> kr.
                                                 <div class="pe-2 pb-3">
                                                     <a href="produkt.php?prodId=<?php echo $produkt->prodId ?>">
