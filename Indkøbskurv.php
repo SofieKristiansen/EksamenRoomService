@@ -37,7 +37,7 @@ include("tilbagepil.php");
             <div class="card shadow bg-kortfarve" style="border-radius: 70px;">
                 <div class="row">
                     <?php
-                    $sql = "SELECT * FROM produkter INNER JOIN ingredienser ON ingrProdukterId = prodId ORDER BY ingrNavn ASC LIMIT 1";
+                    $sql = "SELECT * FROM produkter ORDER BY prodNavn ASC LIMIT 1";
                     $produkter = $db->sql($sql, $bind);
                     foreach ($produkter as $produkt) {
                     ?>

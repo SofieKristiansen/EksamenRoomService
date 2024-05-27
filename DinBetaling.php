@@ -34,7 +34,7 @@ include("tilbagepil.php");
         <div class="col-10">
 
             <div class="mb-5">
-                <h2 class="display-1 overskrift fw-medium">Indkøbskurv</h2>
+                <h2 class="display-1 overskrift fw-medium">Din bestilling</h2>
             </div>
 
             <div class="card shadow bg-kortfarve" style="border-radius: 70px;">

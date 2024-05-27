@@ -2,7 +2,6 @@
 
 <body>
 
-
 <nav class="navbar bg-sekundærfarve" style="height: 110px">
     <div class="container-fluid">
         <div class="row w-100">
