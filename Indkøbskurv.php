@@ -50,30 +50,41 @@ include("tilbagepil.php");
 
                             <div>
                                 <button type="button" class="btn btn-lg me-3" style="padding: 0; margin: 0;">
-                                    <img src="img/blyant.webp" alt="" class="pt-4" style="width: 35px; height:auto; margin: 0;">
+                                    <img src="img/blyant.webp" alt="" class="pt-4"
+                                         style="width: 35px; height:auto; margin: 0;">
                                 </button>
 
-                                <button type="button" class="btn btn-lg me-5" data-bs-toggle="modal" data-bs-target="#sletModal" style="padding: 0; margin: 0;">
-                                    <img src="img/skraldespand.webp" alt="" class="pt-4" style="width: 35px; height:auto; margin: 0;">
+                                <button type="button" class="btn btn-lg me-5" data-bs-toggle="modal"
+                                        data-bs-target="#sletModal" style="padding: 0; margin: 0;">
+                                    <img src="img/skraldespand.webp" alt="" class="pt-4"
+                                         style="width: 35px; height:auto; margin: 0;">
                                 </button>
 
-                                <div class="modal fade" id="sletModal" tabindex="-1" aria-labelledby="sletModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="sletModal" tabindex="-1" aria-labelledby="sletModalLabel"
+                                     aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content border-outlinefarve" style="border-radius: 30px">
 
                                             <div class="modal-header">
-                                                <div class="modal-title text-primærtekstfarve" id="sletModalLabel"></div>
-                                                <button type="button" class="btn-close btn-close-primærfarve lukkeknap" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <div class="modal-title text-primærtekstfarve"
+                                                     id="sletModalLabel"></div>
+                                                <button type="button" class="btn-close btn-close-primærfarve lukkeknap"
+                                                        data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
 
                                             <div class="modal-body text-primærtekstfarve brødtekst">
                                                 <p class="fw-bold fs-1">Slet din bestilling</p>
-                                                <p class="fs-2 fw-medium">Er du sikker på at du vil slette dette fra din bestilling</p>
+                                                <p class="fs-2 fw-medium">Er du sikker på at du vil slette dette fra din
+                                                    bestilling</p>
                                             </div>
 
                                             <div class="modal-footer">
-                                                <a href="Indkøbskurv.php" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve fs-4 fw-medium brødtekst" style="width: 160px;">Anuller</a>
-                                                <a href="Indkøbskurv.php" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve fs-4 fw-medium brødtekst" style="width: 160px;">Ja, slet</a>
+                                                <a href="Indkøbskurv.php"
+                                                   class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve fs-4 fw-medium brødtekst"
+                                                   style="width: 160px;">Anuller</a>
+                                                <a href="Indkøbskurv.php"
+                                                   class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve fs-4 fw-medium brødtekst"
+                                                   style="width: 160px;">Ja, slet</a>
                                             </div>
                                         </div>
                                     </div>
@@ -89,12 +100,12 @@ include("tilbagepil.php");
                                         Antal: 1
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">1</a></li>
-                                        <li><a class="dropdown-item" href="#">2</a></li>
-                                        <li><a class="dropdown-item" href="#">3</a></li>
-                                        <li><a class="dropdown-item" href="#">4</a></li>
-                                        <li><a class="dropdown-item" href="#">5</a></li>
-                                        <li><a class="dropdown-item" href="#">6</a></li>
+                                        <li><a class="dropdown-item text-primærtekstfarve brødtekst" href="#">1</a></li>
+                                        <li><a class="dropdown-item text-primærtekstfarve brødtekst" href="#">2</a></li>
+                                        <li><a class="dropdown-item text-primærtekstfarve brødtekst" href="#">3</a></li>
+                                        <li><a class="dropdown-item text-primærtekstfarve brødtekst" href="#">4</a></li>
+                                        <li><a class="dropdown-item text-primærtekstfarve brødtekst" href="#">5</a></li>
+                                        <li><a class="dropdown-item text-primærtekstfarve brødtekst" href="#">6</a></li>
                                     </ul>
                                 </div>
                                 <div class="brødtekst text-primærtekstfarve fs-2 fw-bold me-5" id="pris">
