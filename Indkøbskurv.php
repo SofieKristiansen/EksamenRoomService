@@ -48,8 +48,8 @@ include("tilbagepil.php");
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h2 class="brødtekst text-primærtekstfarve text-bold fs-2 pt-4" style="line-height: 1;"><?php echo $produkt->prodNavn ?></h2>
                             <div>
-                                <img src="img/blyant.webp" class="pt-4" style="width: 35px; height:auto; margin-left: 10px;">
-                                <img src="img/skraldespand.webp" class="pt-4 me-5" style="width: 35px; height:auto; margin-left: 10px;">
+                                <img src="img/blyant.webp" alt="" class="pt-4" style="width: 35px; height:auto; margin-left: 10px;">
+                                <img src="img/skraldespand.webp" alt="" class="pt-4 me-5" style="width: 35px; height:auto; margin-left: 10px;">
                             </div>
                         </div>
                         <div class="brødtekst text-primærtekstfarve fs-1 fw-bold">
@@ -72,9 +72,7 @@ include("tilbagepil.php");
                                 </div>
                             </div>
                         </div>
-                        <?php
-                        }
-                        ?>
+
                     </div>
                 </div>
             </div>
@@ -84,11 +82,17 @@ include("tilbagepil.php");
                 </div>
                 <a href="DinBetaling.php">
                     <button type="button" class="btn btn-lg shadow rounded-pill btn-primærknap fs-3 brødtekst ms-3 me-5">
-                        Fortsæt
+                        Forsæt
                     </button>
                 </a>
+
             </div>
+
+            <?php
+            }
+            ?>
         </div>
+
         <div class="col-1"></div>
     </div>
 </div>
