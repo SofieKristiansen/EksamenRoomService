@@ -55,7 +55,7 @@ include("tilbagepil.php");
                             foreach ($produkter as $produkt) {
                                 ?>
                                 <div class="col-6">
-                                    <!-- Kort til produktet -->
+
                                     <div class="bg-kortfarve pt-4 pb-3 position-relative" style="border-radius: 70px;">
                                         <div class="card-header brødtekst text-primærtekstfarve ps-4 fs-2 fw-bold pb-3 pe-3 pt-3">
                                             <?php echo $produkt->prodNavn; ?>
@@ -69,7 +69,7 @@ include("tilbagepil.php");
                                             <img src="img/<?php echo $produkt->prodBillede ?>" class="img-fluid card-img-top" alt="">
                                         </div>
                                         <div class="card-footer">
-                                            <div class="fs-1 fw- text-primærtekstfarve brødtekst pt-2 ps-4">Pris</div>
+                                            <div class="fs-1 fw- text-primærtekstfarve brødtekst fw-medium pt-3 ps-4">Pris</div>
                                             <div class="hstack justify-content-between fs-2 ps-4 brødtekst text-primærtekstfarve fw-bold">
                                                 <?php echo $produkt->prodPris; ?> kr.
                                                 <div class="pe-2 pb-3">
@@ -84,18 +84,18 @@ include("tilbagepil.php");
                                 <?php
                             }
                         } else {
-                            // Ingen produkter fundet i kategorien
+
                             echo "<div class='col-12'><p>Ingen produkter fundet i denne kategori.</p></div>";
                         }
                         ?>
                     </div>
                     <?php
                 } else {
-                    // Fejlhåndtering hvis kategori ikke blev fundet
+
                     echo "<p>Den angivne kategori blev ikke fundet.</p>";
                 }
             } else {
-                // Fejlhåndtering hvis kategori-ID ikke er angivet
+
                 echo "<p>Kategori ID blev ikke angivet.</p>";
             }
             ?>
