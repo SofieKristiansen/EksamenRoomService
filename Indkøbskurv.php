@@ -23,17 +23,30 @@ require "settings/init.php";
 include("navbar.php");
 ?>
 
-<?php
-include("tilbagepil.php");
-?>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-1"></div>
+
         <div class="col-10">
-            <div class="mb-5">
-                <h2 class="display-1 overskrift fw-medium">Indkøbskurv</h2>
+            <div class="breadcrumb-container">
+                <div class="back-arrow pt-3">
+                    <?php include("tilbagepil.php"); ?>
+                </div>
             </div>
+        </div>
+
+        <div class="col-1"></div>
+    </div>
+</div>
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10 ">
+            <div class="mb-5 text-primærtekstfarve">
+                <div class="display-2 overskrift fw-medium">Indkøbskurv</div>
+            </div>
+
             <div class="card shadow bg-kortfarve" style="border-radius: 70px;">
                 <div class="row">
                     <?php

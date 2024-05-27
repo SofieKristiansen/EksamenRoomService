@@ -36,7 +36,7 @@ include("navbar.php");
 </div>
 
 
-<div class="container-fluid mt-5">
+<div class="container-fluid mt-3">
     <div class="row">
         <div class="col-1"></div>
         <div class="col-10 text-primærtekstfarve">

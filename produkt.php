@@ -39,10 +39,11 @@ include("navbar.php");
         <div class="col-1"></div>
     </div>
 </div>
-<div class="container-fluid mt-5">
+
+<div class="container-fluid mt-3">
     <div class="row">
         <div class="col-1"></div>
-        <div class="col-10 text-primærtekstfarve">
+        <div class="col-10 ">
             <?php
             if ($_GET['prodId']) {
                 $prodId = $_GET['prodId'];
@@ -50,10 +51,10 @@ include("navbar.php");
                 $produkt = $db->sql($sql, [':prodId' => $prodId]);
                 foreach ($produkt as $prod) {
                     ?>
-                    <div class="kategori mb-5 d-flex">
+                    <div class="kategori mb-5 d-flex text-primærtekstfarve">
                         <div class="row">
                             <div class="col-10">
-                                <h2 class="display-1 overskrift fw-medium"><?php echo $prod->prodNavn ?></h2>
+                                <h2 class="display-2 overskrift fw-medium"><?php echo $prod->prodNavn ?></h2>
                             </div>
                         </div>
                     </div>
@@ -125,23 +126,23 @@ include("navbar.php");
                     ?>
 
                     <div class="col-12">
-                        <div class="card shadow bg-kortfarve pt-2 ps-3 pb-1" style="border-radius: 70px;">
+                        <div class="card shadow bg-kortfarve pt-2 ps-2 pe-2 pb-1" style="border-radius: 70px;">
                             <div class="card-body">
 
                                 <div class="row align-items-center mb-3">
                                     <div class="col">
-                                        <div class="btn bg-white border-outlinefarve fs-1 d-flex justify-content-between brødtekst text-primærtekstfarve ps-4 pe-4"
+                                        <div class="btn bg-white border-outlinefarve d-flex justify-content-between brødtekst text-primærtekstfarve ps-4 pe-4"
                                              style="border-radius: 70px; width: 100%">
-                                            <div class="minus">-</div>
-                                            <div class="tal">1</div>
-                                            <div class="plus">+</div>
+                                            <div class="minus display-4 fw-medium">-</div>
+                                            <div class="tal display-4 fw-medium">1</div>
+                                            <div class="plus display-4 fw-medium">+</div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="d-flex justify-content-between align-items-center mt-4 mb-2">
 
-                                    <div class="brødtekst text-primærtekstfarve fs-2 fw-bold" id="pris">
+                                    <div class="brødtekst text-primærtekstfarve fs-2 pt-2 fw-bold" id="pris">
                                         <?php echo number_format($produkt->prodPris, 2); ?> kr.
                                     </div>
 
@@ -159,7 +160,7 @@ include("navbar.php");
                     </div>
                 </div>
 
-                <div class="col-12">
+                <div class="col-12 mt-4">
                     <div class="card shadow bg-kortfarve pt-2 ps-3 pb-4" style="border-radius: 70px;">
                         <div class="d-flex justify-content-between align-items-start">
 

@@ -14,7 +14,7 @@ if ($prodId > 0) {
         $kortProduktNavn = $produktNavnArray[0];
         ?>
         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb fs-1 pt-5 mt-3 fw-medium brødtekst">
+            <ol class="breadcrumb fs-1 pt-3 mt-3 fw-medium brødtekst">
                 <li class="breadcrumb-item"><a class="text-primærtekstfarve" href="forside.php">Forside</a></li>
                 <li class="breadcrumb-item"><a class="text-primærtekstfarve" href="<?php echo $produkterURL; ?>"><?php echo $produkt->kategoriNavn; ?></a></li>
                 <li class="breadcrumb-item active text-primærtekstfarve" aria-current="page"><?php echo $kortProduktNavn; ?></li>
@@ -29,7 +29,7 @@ if ($prodId > 0) {
         $kategori = $kategorier[0];
         ?>
         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb fs-1 pt-5 mt-3 fw-medium brødtekst">
+            <ol class="breadcrumb fs-1 pt-3 mt-3 fw-medium brødtekst">
                 <li class="breadcrumb-item"><a class="text-primærtekstfarve" href="forside.php">Forside</a></li>
                 <li class="breadcrumb-item active text-primærtekstfarve" aria-current="page"><?php echo $kategori->kateNavn; ?></li>
             </ol>
