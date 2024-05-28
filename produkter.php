@@ -76,11 +76,11 @@ include("navbar.php");
                                     <div class="bg-kortfarve pt-4 pb-3 position-relative" style="border-radius: 70px;">
                                         <div class="card-header brødtekst text-primærtekstfarve ps-4 fs-2 fw-bold pb-3 pe-3 pt-3">
                                             <?php echo $produkt->prodNavn; ?>
-                                            <div class="d-flex align-items-center justify-content-center position-absolute" style="top: -15px; right: -15px;">
-                                                <form id="tilføjikurv" action="addToCart.php">
-                                                    <button type="submit" class="btn btn-secondary brødtekst rounded-circle bg-primærknap d-flex align-items-center justify-content-center" style="width: 70px; height: 70px; font-size: 55px; padding: 0;">+</button>
-                                                </form>
-                                            </div>
+                                                <div class="d-flex align-items-center justify-content-center position-absolute" style="top: -15px; right: -15px;">
+                                                    <a href="#">
+                                                        <button type="button" class="btn btn-secondary brødtekst rounded-circle bg-primærknap d-flex align-items-center justify-content-center" style="width: 70px; height: 70px; font-size: 55px; padding: 0;">+</button>
+                                                    </a>
+                                                </div>
                                         </div>
                                         <div class="card-body p-0 m-0">
                                             <img src="img/<?php echo $produkt->prodBillede ?>" class="img-fluid card-img-top" alt="">
@@ -120,33 +120,6 @@ include("navbar.php");
         <div class="col-1"></div>
     </div>
 </div>
-
-<script>
-    document.getElementById('tilføjikurv').addEventListener('submit', (event) => {
-        event.preventDefault(); // Forhindre standard formularindsendelse
-        const formData = new FormData(event.target);
-
-        fetch(event.target.action, {
-            method: 'POST',
-            body: formData
-        })
-            .then(response => response.text())
-            .then(data => {
-
-                const cartBadge = document.getElementById('cart-badge');
-
-                let cartCount = parseInt(cartBadge.textContent, 10);
-                if (isNaN(cartCount) || cartCount < 0) {
-                    cartCount = 0;
-                }
-
-                cartBadge.textContent = cartCount + 1;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-    });
-</script>
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
