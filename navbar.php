@@ -60,8 +60,8 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve" data-bs-dismiss="modal" style="width: 160px;">Annuller</button>
-                <button type="button" class="btn btn-primary btn-lg rounded-pill btn-primærknap " data-bs-dismiss="modal" style="width: 160px;">Gem</button>
+                <button type="button" class="btn me-3 btn-lg rounded-pill btn-sekundærknap brødtekst text-primærtekstfarve border-outlinefarve" data-bs-dismiss="modal" style="width: 160px;">Annuller</button>
+                <button type="button" class="btn btn-lg rounded-pill btn-primærknap brødtekst" data-bs-dismiss="modal" style="width: 160px;">Gem</button>
             </div>
 
         </div>
