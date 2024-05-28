@@ -23,7 +23,7 @@ require "settings/init.php";
 include("navbar.php");
 ?>
 
-<div class="container-fluid">
+<div class="container-fluid pt-3">
     <div class="row">
         <div class="col-1"></div>
 
