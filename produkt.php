@@ -210,7 +210,7 @@ include("navbar.php");
             </div>
 
             <div class="modal-footer">
-                <a href="forside.php" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve fs-4 fw-medium brødtekst" style="width: 160px;">Bestil mere</a>
+                <a href="#" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve fs-4 fw-medium brødtekst" style="width: 160px;">Bestil mere</a>
                 <a href="Indkøbskurv.php" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve fs-4 fw-medium brødtekst" style="width: 160px;">Gå til kurv</a>
             </div>
         </div>
