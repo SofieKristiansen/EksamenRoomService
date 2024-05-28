@@ -62,13 +62,55 @@ include("navbar.php");
                             <h2 class="brødtekst text-primærtekstfarve text-bold fs-2 pt-4" style="line-height: 1;"><?php echo $produkt->prodNavn ?></h2>
 
                             <div>
-                                <button type="button" class="btn btn-lg me-3" style="padding: 0; margin: 0;">
-                                    <img src="img/blyant.webp" alt="" class="pt-4"
-                                         style="width: 35px; height:auto; margin: 0;">
+                                <button type="button" class="btn btn-lg me-3" data-bs-toggle="modal" data-bs-target="#tilpasModal" style="padding: 0; margin: 0;">
+                                    <img src="img/blyant.webp" alt="" class="pt-4" style="width: 35px; height:auto; margin: 0;">
                                 </button>
 
-                                <button type="button" class="btn btn-lg me-5" data-bs-toggle="modal"
-                                        data-bs-target="#sletModal" style="padding: 0; margin: 0;">
+                                <div class="modal fade" id="tilpasModal" tabindex="-1" aria-labelledby="tilpasModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" style="max-width: 600px;">
+                                        <div class="modal-content border-outlinefarve">
+                                            <div class="modal-header">
+                                                <button type="button" class="btn-close btn-close-primærfarve lukkeknap" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="modal-title text-primærtekstfarve fs-1 brødtekst pb-4 fw-bold" id="tilpasModalLabel">Tilpas din bestilling</div>
+                                                <div class="text-primærtekstfarve fs-2 brødtekst pb-4 fw-medium"><?php echo $produkt->prodNavn; ?></div>
+                                                <?php
+                                                $sql = "SELECT * FROM ingredienser WHERE ingrProdukterId = :produktId ORDER BY ingrNavn ASC";
+                                                $bind = [":produktId" => $produkt->prodId];
+                                                $ingredienser = $db->sql($sql, $bind);
+                                                foreach ($ingredienser as $index => $ingrediens) {
+                                                    ?>
+
+                                                    <div class="d-flex justify-content-between align-items-center mb-4">
+                                                        <div class="dropdown" style="width: 300px;">
+                                                            <button class="btn btn-sekundærknap border-outlinefarve rounded-pill fs-2 fw-bold brødtekst text-primærtekstfarve text-start ps-4 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
+                                                                <?php echo $ingrediens->ingrNavn ?>
+                                                            </button>
+                                                            <ul class="dropdown-menu p-0 m-0 border-outlinefarve" style="width: 300px;">
+                                                                <li class="display-3 brødtekst d-flex justify-content-between align-items-center text-center">
+                                                                    <div class="dropdown-item text-primærtekstfarve minus">-</div>
+                                                                    <div class="dropdown-item text-primærtekstfarve tal">1</div>
+                                                                    <div class="dropdown-item text-primærtekstfarve plus">+</div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="ms-3 fs-2 brødtekst text-primærtekstfarve fw-bold">
+                                                            + <?php echo $ingrediens->ingrPris ?> kr
+                                                        </div>
+                                                    </div>
+                                                <?php } ?>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="#" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap brødtekst text-primærtekstfarve border-outlinefarve" style="width: 160px;">Annuller</a>
+                                                <a href="#" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap brødtekst text-sekundærekstfarve border-outlinefarve" style="width: 160px;">Gem</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <button type="button" class="btn btn-lg me-5" data-bs-toggle="modal" data-bs-target="#sletModal" style="padding: 0; margin: 0;">
                                     <img src="img/skraldespand.webp" alt="" class="pt-4"
                                          style="width: 35px; height:auto; margin: 0;">
                                 </button>
