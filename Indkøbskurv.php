@@ -139,27 +139,24 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
                                 </div>
                                 <div class="brødtekst text-primærtekstfarve fs-1 fw-bold">
                                     <div class="d-flex justify-content-between align-items-end mb-3">
-                                        <div class="dropdown">
-                                            <button class="btn dropdown-toggle align bg-white border-outlinefarve fs-1 d-flex justify-content-between brødtekst text-primærtekstfarve ps-4 pe-4 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 70px; width: 100%">
-                                                Antal: <?php echo $quantity; ?>
-                                            </button>
-                                            <ul class="dropdown-menu text-end pe-2 border-outlinefarve" style="width: 100%;">
-                                                <li><a class="dropdown-item text-primærtekstfarve brødtekst display-4" href="#">1</a></li>
-                                                <li><a class="dropdown-item text-primærtekstfarve brødtekst display-4" href="#">2</a></li>
-                                                <li><a class="dropdown-item text-primærtekstfarve brødtekst display-4" href="#">3</a></li>
-                                                <li><a class="dropdown-item text-primærtekstfarve brødtekst display-4" href="#">4</a></li>
-                                                <li><a class="dropdown-item text-primærtekstfarve brødtekst display-4" href="#">5</a></li>
-                                                <li><a class="dropdown-item text-primærtekstfarve brødtekst display-4" href="#">6</a></li>
-                                            </ul>
-                                        </div>
+                                        <select class="form-select form-select-lg mb-3" aria-label="Large select example" style="width: 200px;">
+                                            <option selected class="align bg-white border-outlinefarve fs-1 d-flex justify-content-between brødtekst text-primærtekstfarve ps-4 pe-4 dropdown-toggle" >Antal: <?php echo $quantity; ?></option>
+                                            <option class="text-primærtekstfarve brødtekst display-4" value="1">Antal: 1</option>
+                                            <option class="text-primærtekstfarve brødtekst display-4" value="2">Antal: 2</option>
+                                            <option class="text-primærtekstfarve brødtekst display-4" value="3">Antal: 3</option>
+                                        </select>
+
+
                                         <div class="brødtekst text-primærtekstfarve fs-2 fw-bold me-5" id="pris">
                                             <?php echo number_format($produkt->prodPris * $quantity, 2); ?> kr.
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
+
                 <?php endforeach; ?>
                 <div class="d-flex justify-content-end align-items-end vstack" style="margin-left: auto">
                     <div class="brødtekst text-primærtekstfarve fs-2 fw-bold me-5 mt-5 mb-3" id="total-pris"> Total:
