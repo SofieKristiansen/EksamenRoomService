@@ -5,7 +5,7 @@ require "settings/init.php";
 <html lang="da">
 <head>
     <meta charset="utf-8">
-    <title>Sigende titel</title>
+    <title>Produkter</title>
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
     <meta name="copyright" content="Information om copyright">
