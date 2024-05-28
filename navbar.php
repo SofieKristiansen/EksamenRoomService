@@ -1,33 +1,36 @@
-
-
-<body>
+<?php
+session_start();
+$cartCount = !empty($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
+var_dump($cartCount);
+?>
 
 <nav class="navbar bg-sekundærfarve" style="height: 110px">
     <div class="container-fluid">
         <div class="row w-100">
             <div class="col-1"></div>
-
             <div class="col-10">
                 <div class="d-flex justify-content-between display-3 brødtekst">
-                    <div class="">
-                        <a href="forside.php" ><img src="#" alt="" class="img-fluid">Logo</a>
+                    <div>
+                        <a href="forside.php"><img src="#" alt="" class="img-fluid">Logo</a>
                     </div>
-
                     <div class="ms-auto">
                         <a href="#" class="" data-bs-toggle="modal" data-bs-target="#sprogModal">
-                            <img src="img/globus.webp" alt="" class="img-fluid col-1 " style="width: 50px">
+                            <img src="img/globus.webp" alt="" class="img-fluid col-1" style="width: 50px">
                         </a>
                         <a href="Indkøbskurv.php" class="ms-4 position-relative">
-                            <img src="img/Indkøbskurv.webp" alt="Indkøbskurv" class="img-fluid col-1" style="width: 50px">
-                            <span id="cart-badge" class="position-absolute top-25 start-100 translate-middle badge bg-baggrundsfarve rounded-circle">
-                               <span class="visually-hidden">
-                             </span>
+                            <img src="img/Indkøbskurv.webp" alt="Indkøbskurv" class="img-fluid col-1" style="width: 60px">
+                            <span id="cart-badge" class=" fs-3 position-absolute top-25 start-100 translate-middle badge bg-baggrundsfarve rounded-circle">
+                                <?php
+                                if ($cartCount > 0){ ?>
+                                    <?php echo $cartCount; ?>
+                                <?php } else { ?>
+                                    <span class="visually-hidden"></span>
+                                <?php } ?>
+                            </span>
                         </a>
-
                     </div>
                 </div>
             </div>
-
             <div class="col-1"></div>
         </div>
     </div>
@@ -70,4 +73,4 @@
 
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+
