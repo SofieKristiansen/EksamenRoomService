@@ -17,16 +17,18 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 <body class="bg-baggrundsfarve">
 <?php include("navbar.php"); ?>
 
-<div class="container-fluid">
+<div class="container-fluid pt-3">
     <div class="row">
         <div class="col-1"></div>
+
         <div class="col-10">
             <div class="breadcrumb-container">
-                <div class="back-arrow pt-3">
+                <div class="back-arrow hstack">
                     <?php include("tilbagepil.php"); ?>
                 </div>
             </div>
         </div>
+
         <div class="col-1"></div>
     </div>
 </div>
