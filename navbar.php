@@ -1,7 +1,7 @@
 <?php
 session_start();
 $cartCount = !empty($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
-var_dump($cartCount);
+
 ?>
 
 <nav class="navbar bg-sekundærfarve" style="height: 110px">
