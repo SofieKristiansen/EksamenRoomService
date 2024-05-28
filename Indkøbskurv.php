@@ -49,10 +49,12 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
                     </a>
                 </div>
             <?php else: ?>
-                <?php foreach ($cart as $productId => $quantity): ?>
-                    <?php
+                <?php
+                $totalPris = 0;
+                foreach ($cart as $productId => $quantity):
                     $sql = "SELECT * FROM produkter WHERE prodId = :prodId";
                     $produkt = $db->sql($sql, [':prodId' => $productId])[0];
+                    $totalPris += $produkt->prodPris * $quantity;
                     ?>
                     <div class="card shadow bg-kortfarve mb-5" style="border-radius: 70px;">
                         <div class="row">
@@ -139,17 +141,15 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
                                         </div>
                                     </div>
                                 </div>
-                                <div class="brødtekst text-primærtekstfarve fs-1 fw-bold">
+                                <div class="brødtekst text-primærtekstfarve">
                                     <div class="d-flex justify-content-between align-items-end mb-3">
-                                        <select class="form-select form-select-lg mb-3" aria-label="Large select example" style="width: 200px;">
-                                            <option selected class="align bg-white border-outlinefarve fs-1 d-flex justify-content-between brødtekst text-primærtekstfarve ps-4 pe-4 dropdown-toggle" >Antal: <?php echo $quantity; ?></option>
-                                            <option class="text-primærtekstfarve brødtekst display-4" value="1">Antal: 1</option>
-                                            <option class="text-primærtekstfarve brødtekst display-4" value="2">Antal: 2</option>
-                                            <option class="text-primærtekstfarve brødtekst display-4" value="3">Antal: 3</option>
+                                        <select id="quantitySelect<?php echo $productId; ?>" class="form-select fs-2 form-select-lg mb-3 quantitySelect" aria-label="Large select example" data-product-id="<?php echo $productId; ?>" data-prod-pris="<?php echo $produkt->prodPris; ?>" style="width: 200px;">
+                                            <?php for ($i = 1; $i <= 10; $i++): ?>
+                                                <option class="text-primærtekstfarve brødtekst fs-4" value="<?php echo $i; ?>" <?php echo ($i == $quantity) ? 'selected' : ''; ?>>Antal: <?php echo $i; ?></option>
+                                            <?php endfor; ?>
                                         </select>
 
-
-                                        <div class="brødtekst text-primærtekstfarve fs-2 fw-bold me-5" id="pris">
+                                        <div class="brødtekst text-primærtekstfarve fs-2 fw-bold me-5 pris" id="pris<?php echo $productId; ?>">
                                             <?php echo number_format($produkt->prodPris * $quantity, 2); ?> kr.
                                         </div>
                                     </div>
@@ -162,11 +162,7 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
                 <?php endforeach; ?>
                 <div class="d-flex justify-content-end align-items-end vstack" style="margin-left: auto">
                     <div class="brødtekst text-primærtekstfarve fs-2 fw-bold me-5 mt-5 mb-3" id="total-pris"> Total:
-                        <?php echo number_format(array_reduce($cart, function ($carry, $quantity) use ($db) {
-                            $sql = "SELECT prodPris FROM produkter WHERE prodId = :prodId";
-                            $product = $db->sql($sql, [':prodId' => $quantity]);
-                            return $carry + $product[0]->prodPris * $quantity;
-                        }, 0), 2); ?> kr.
+                        <?php echo number_format($totalPris, 2); ?> kr.
                     </div>
                     <a href="DinBetaling.php">
                         <button type="button" class="btn btn-lg shadow rounded-pill btn-primærknap fs-3 brødtekst ms-3 me-5">
@@ -179,6 +175,44 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
         <div class="col-1"></div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const quantitySelects = document.querySelectorAll('.quantitySelect');
+        const totalPrisElement = document.getElementById('total-pris');
+        let totalPris = <?php echo $totalPris; ?>;
+        const cartBadge = document.getElementById('cart-badge');
+
+        quantitySelects.forEach(select => {
+            select.addEventListener('change', function() {
+                const productId = this.getAttribute('data-product-id');
+                const selectedQuantity = parseInt(this.value);
+                const prodPris = parseFloat(this.getAttribute('data-prod-pris'));
+
+                // Update individual product price
+                const updatedPrice = (prodPris * selectedQuantity).toFixed(2);
+                document.getElementById('pris' + productId).textContent = `${updatedPrice} kr.`;
+
+                // Update total price
+                totalPris = Array.from(quantitySelects).reduce((acc, select) => {
+                    const selectedQuantity = parseInt(select.value);
+                    const prodPris = parseFloat(select.getAttribute('data-prod-pris'));
+                    return acc + (prodPris * selectedQuantity);
+                }, 0);
+
+                totalPrisElement.textContent = `Total: ${totalPris.toFixed(2)} kr.`;
+
+                // Update cart badge
+                const totalQuantity = Array.from(quantitySelects).reduce((acc, select) => {
+                    return acc + parseInt(select.value);
+                }, 0);
+
+                cartBadge.textContent = totalQuantity;
+                cartBadge.classList.toggle('visually-hidden', totalQuantity === 0);
+            });
+        });
+    });
+</script>
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
