@@ -6,7 +6,7 @@ require "settings/init.php";
 <head>
     <meta charset="utf-8">
 
-    <title>Sigende titel</title>
+    <title>Hotel Strandparken</title>
 
 
     <meta name="robots" content="All">
@@ -56,7 +56,7 @@ include("navbar.php");
                             <img src="img/<?php echo $kategori->kateIkoner?>" alt="" style="width: 4em;" class="me-4">
                             <h2 class="display-2 fw-medium text-primærtekstfarve mb-0"><?php echo $kategori->kateNavn?></h2>
                         </a>
-                        <h2 class="fs-2 text-primærtekstfarve mb-0"><?php echo $kategori->kateTider?></h2>
+                        <h2 class="fs-1 overskrift fw-medium text-primærtekstfarve mb-0"><?php echo $kategori->kateTider?></h2>
                     </div>
                     <?php
                 }
