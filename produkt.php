@@ -146,13 +146,13 @@ include("navbar.php");
                                         <?php echo number_format($produkt->prodPris, 2); ?> kr.
                                     </div>
 
-                                    <div>
-                                        <a href="#">
-                                        <button type="button" class="btn btn-lg shadow rounded-pill btn-primærknap fs-3 brødtekst ms-3" data-bs-toggle="modal" data-bs-target="#modal">
+                                    <form id="addToCartForm" action="addToCart.php" method="post">
+                                        <input type="hidden" name="productId" value="<?php echo $prodId; ?>">
+                                        <input type="hidden" name="quantity" value="1" id="quantityInput">
+                                        <button type="submit" class="btn btn-lg shadow rounded-pill btn-primærknap fs-3 brødtekst ms-3">
                                             Læg i kurv
                                         </button>
-                                        </a>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
 
@@ -206,7 +206,7 @@ include("navbar.php");
                 <p class="fw-bold fs-1">Din bestilling</p>
                 <p class="fs-2 fw-medium"><?php echo $produkt->prodNavn; ?></p>
                 <p class="fs-2 fw-medium">Tilvalg:</p>
-                <p class="fs-2 fw-medium">Antal: </p>
+                <p class="fs-2 fw-medium fw">Antal: <span id="modalQuantity"></span></p>
             </div>
 
             <div class="modal-footer">
@@ -266,48 +266,76 @@ include("navbar.php");
 <script>
 
 
+    document.addEventListener('DOMContentLoaded', () => {
+        const minus = document.querySelector(".minus");
+        const plus = document.querySelector(".plus");
+        const tal = document.querySelector(".tal");
+        const prisElement = document.querySelector("#pris");
+        const quantityInput = document.getElementById("quantityInput");
+        const addToCartForm = document.getElementById("addToCartForm");
 
+        // Gem den oprindelige pris som en attribut på prisen
+        const oprindeligPris = Number(prisElement.textContent.replace(" kr.", "").replace(",", "."));
+        tal.dataset.oprindeligPris = oprindeligPris;
 
-// Læg i kurv
+        const opdaterPris = () => {
+            const antal = Number(tal.textContent);
+            const oprindeligPris = Number(tal.dataset.oprindeligPris);
+            const nyPris = (oprindeligPris * antal).toFixed(2);
+            prisElement.textContent = `${nyPris} kr.`;
+        };
 
-    const minus = document.querySelector(".minus");
-    const plus = document.querySelector(".plus");
-    const tal = document.querySelector(".tal");
-    const prisElement = document.querySelector("#pris");
+        minus.addEventListener("click", () => {
+            const glTal = Number(tal.textContent);
+            if (glTal > 1) {
+                let nytTal = glTal - 1;
+                tal.textContent = nytTal;
+                quantityInput.value = nytTal;
+                opdaterPris();
+            }
+        });
 
-    // Gem den oprindelige pris som en attribut på knappen
-    const oprindeligPris = Number(prisElement.textContent.replace(" kr.", "").replace(",", "."));
-    tal.dataset.oprindeligPris = oprindeligPris;
+        plus.addEventListener("click", () => {
+            const glTal = Number(tal.textContent);
+            if (glTal < 15) {
+                let nytTal = glTal + 1;
+                tal.textContent = nytTal;
+                quantityInput.value = nytTal;
+                opdaterPris();
+            }
+        });
 
-    const opdaterPris = () => {
-        const antal = Number(tal.textContent);
-        const oprindeligPris = Number(tal.dataset.oprindeligPris);
-        const nyPris = (oprindeligPris * antal).toFixed(2);
-        prisElement.textContent = `${nyPris} kr.`;
-    };
+        addToCartForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Forhindre standard formularindsendelse
+            const formData = new FormData(addToCartForm);
 
-    minus.addEventListener("click", () => {
-        const glTal = Number(tal.textContent);
-        if (glTal > 1) {
-            let nytTal = glTal - 1;
-            tal.textContent = nytTal;
-            opdaterPris();
-        }
+            fetch(addToCartForm.action, {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.text())
+                .then(data => {
+                    // Opdater kurv-ikonet hvis nødvendigt
+                    const cartBadge = document.getElementById('cart-badge');
+
+                    let cartCount = parseInt(cartBadge.textContent, 10);
+                    if (isNaN(cartCount) || cartCount < 0) {
+                        cartCount = 0;
+                    }
+
+                    cartBadge.textContent = parseInt(cartCount) + parseInt(formData.get('quantity'));
+                    cartBadge.classList.remove('visually-hidden');
+
+                    // Opdater modalindholdet med det valgte antal
+                    const modalQuantity = document.getElementById('modalQuantity');
+                    modalQuantity.textContent = formData.get('quantity');
+
+                    // Vis modalvinduet
+                    new bootstrap.Modal(document.getElementById('modal')).show();
+                })
+                .catch(error => console.error('Fejl ved opdatering af kurv:', error));
+        });
     });
-
-    plus.addEventListener("click", () => {
-        const glTal = Number(tal.textContent);
-        if (glTal < 15) {
-            let nytTal = glTal + 1;
-            tal.textContent = nytTal;
-            opdaterPris();
-        }
-    });
-
-
-// Modalvindue tilføjelse
-
-
 
 
 </script>
