@@ -1,4 +1,6 @@
-
+<?php
+require "settings/init.php";
+?>
 
 <body>
 
