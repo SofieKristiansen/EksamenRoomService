@@ -112,13 +112,13 @@ include("navbar.php");
                                     <button class="btn dropdown-toggle bg-white border-outlinefarve fs-1 d-flex justify-content-between brødtekst text-primærtekstfarve ps-4 pe-4 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 70px; width: 100%">
                                         Antal: 1
                                     </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item text-primærtekstfarve brødtekst" href="#">1</a></li>
-                                        <li><a class="dropdown-item text-primærtekstfarve brødtekst" href="#">2</a></li>
-                                        <li><a class="dropdown-item text-primærtekstfarve brødtekst" href="#">3</a></li>
-                                        <li><a class="dropdown-item text-primærtekstfarve brødtekst" href="#">4</a></li>
-                                        <li><a class="dropdown-item text-primærtekstfarve brødtekst" href="#">5</a></li>
-                                        <li><a class="dropdown-item text-primærtekstfarve brødtekst" href="#">6</a></li>
+                                    <ul class="dropdown-menu text-end pe-2 border-outlinefarve" style="width: 100%;">
+                                        <li><a class="dropdown-item text-primærtekstfarve brødtekst display-4" href="#">1</a></li>
+                                        <li><a class="dropdown-item text-primærtekstfarve brødtekst display-4" href="#">2</a></li>
+                                        <li><a class="dropdown-item text-primærtekstfarve brødtekst display-4" href="#">3</a></li>
+                                        <li><a class="dropdown-item text-primærtekstfarve brødtekst display-4" href="#">4</a></li>
+                                        <li><a class="dropdown-item text-primærtekstfarve brødtekst display-4" href="#">5</a></li>
+                                        <li><a class="dropdown-item text-primærtekstfarve brødtekst display-4" href="#">6</a></li>
                                     </ul>
                                 </div>
                                 <div class="brødtekst text-primærtekstfarve fs-2 fw-bold me-5" id="pris">

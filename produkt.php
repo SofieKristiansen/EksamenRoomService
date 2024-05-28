@@ -240,7 +240,7 @@ include("navbar.php");
                             <button class="btn btn-sekundærknap border-outlinefarve rounded-pill fs-2 fw-bold brødtekst text-primærtekstfarve text-start ps-4 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
                                 <?php echo $ingrediens->ingrNavn ?>
                             </button>
-                            <ul class="dropdown-menu p-0 m-0" style="width: 300px;">
+                            <ul class="dropdown-menu p-0 m-0 border-outlinefarve" style="width: 300px;">
                                 <li class="display-3 brødtekst d-flex justify-content-between align-items-center text-center">
                                     <div class="dropdown-item text-primærtekstfarve minus">-</div>
                                     <div class="dropdown-item text-primærtekstfarve tal">1</div>
