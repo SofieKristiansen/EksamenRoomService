@@ -52,7 +52,7 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
                     $sql = "SELECT * FROM produkter WHERE prodId = :prodId";
                     $produkt = $db->sql($sql, [':prodId' => $productId])[0];
                     ?>
-                    <div class="card shadow bg-kortfarve mb-3" style="border-radius: 70px;">
+                    <div class="card shadow bg-kortfarve mb-5" style="border-radius: 70px;">
                         <div class="row">
                             <div class="col-3">
                                 <img src="img/<?php echo $produkt->prodProduktBillede ?>" class="img-fluid" alt="" style="border-radius: 70px;">
