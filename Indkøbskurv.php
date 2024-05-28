@@ -55,14 +55,14 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
                     <div class="card shadow bg-kortfarve mb-5" style="border-radius: 70px;">
                         <div class="row">
                             <div class="col-3">
-                                <img src="img/<?php echo $produkt->prodProduktBillede ?>" class="img-fluid" alt="" style="border-radius: 70px;">
+                                <img src="img/<?php echo $produkt->prodProduktBillede ?>" class="img-fluid object-fit-cover" alt="" style="border-radius: 70px;">
                             </div>
                             <div class="col-9 d-flex flex-column justify-content-between">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <h2 class="brødtekst text-primærtekstfarve text-bold fs-2 pt-4" style="line-height: 1;"><?php echo $produkt->prodNavn ?></h2>
-                                    <div>
+                                    <h2 class="brødtekst text-primærtekstfarve text-bold fs-2 pt-4 me-5" style="line-height: 1;"><?php echo $produkt->prodNavn ?></h2>
+                                    <div class="d-flex align-items-center ">
                                         <button type="button" class="btn btn-lg me-3" data-bs-toggle="modal" data-bs-target="#tilpasModal<?php echo $productId; ?>" style="padding: 0; margin: 0;">
-                                            <img src="img/blyant.webp" alt="" class="pt-4" style="width: 35px; height:auto; margin: 0;">
+                                            <img src="img/blyant.webp" alt="rediger" class="pt-2 me-3" style="width: 35px; height:auto; margin: 0;">
                                         </button>
 
                                         <!-- Tilpas Modal -->
@@ -111,7 +111,7 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 
                                         <!-- Slet knap og modal -->
                                         <button type="button" class="btn btn-lg me-5" data-bs-toggle="modal" data-bs-target="#sletModal<?php echo $productId; ?>" style="padding: 0; margin: 0;">
-                                            <img src="img/skraldespand.webp" alt="" class="pt-4" style="width: 35px; height:auto; margin: 0;">
+                                            <img src="img/skraldespand.webp" alt="" class="pt-2" style="width: 35px; height:auto; margin: 0;">
                                         </button>
 
                                         <div class="modal fade" id="sletModal<?php echo $productId; ?>" tabindex="-1" aria-labelledby="sletModalLabel<?php echo $productId; ?>" aria-hidden="true">
