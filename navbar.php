@@ -10,9 +10,9 @@ $cartCount = !empty($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
             <div class="col-10">
                 <div class="d-flex justify-content-between display-3 brødtekst">
                     <div>
-                        <a href="forside.php"><img src="#" alt="" class="img-fluid">Logo</a>
+                        <a href="forside.php"><img src="img/LogoStrandV1.png" alt="Logo" class="img-fluid" style="width: 150px"></a>
                     </div>
-                    <div class="ms-auto">
+                    <div class="ms-auto mt-2">
                         <a href="#" class="" data-bs-toggle="modal" data-bs-target="#sprogModal">
                             <img src="img/globus.webp" alt="" class="img-fluid col-1" style="width: 50px">
                         </a>
