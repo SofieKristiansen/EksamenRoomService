@@ -23,7 +23,7 @@ require "settings/init.php";
 include("navbar.php");
 ?>
 
-<div class="container-fluid pt-3">
+<div class="container-fluid pt-4">
     <div class="row">
         <div class="col-1"></div>
 
@@ -43,7 +43,7 @@ include("navbar.php");
 <div class="container-fluid mt-3">
     <div class="row">
         <div class="col-1"></div>
-        <div class="col-10 ">
+        <div class="col-10 text-primærtekstfarve">
             <?php
             if ($_GET['prodId']) {
                 $prodId = $_GET['prodId'];

@@ -17,13 +17,13 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 <body class="bg-baggrundsfarve">
 <?php include("navbar.php"); ?>
 
-<div class="container-fluid pt-3">
+<div class="container-fluid pt-4">
     <div class="row">
         <div class="col-1"></div>
 
         <div class="col-10">
             <div class="breadcrumb-container">
-                <div class="back-arrow hstack">
+                <div class="back-arrow">
                     <?php include("tilbagepil.php"); ?>
                 </div>
             </div>
@@ -36,9 +36,9 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 <div class="container-fluid mt-3">
     <div class="row">
         <div class="col-1"></div>
-        <div class="col-10">
-            <div class="mb-5 text-primærtekstfarve">
-                <div class="display-2 overskrift fw-medium">Indkøbskurv</div>
+        <div class="col-10 text-primærtekstfarve">
+            <div class="mb-5">
+                <div class="display-1 overskrift fw-medium">Indkøbskurv</div>
             </div>
             <?php if (empty($cart)): ?>
                 <p class="brødtekst fs-1 fw-bold text-primærtekstfarve">Din indkøbskurv er tom.</p>

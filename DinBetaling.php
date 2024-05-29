@@ -23,13 +23,13 @@ require "settings/init.php";
 include("navbar.php");
 ?>
 
-<div class="container-fluid pt-3">
+<div class="container-fluid pt-4">
     <div class="row">
         <div class="col-1"></div>
 
         <div class="col-10">
             <div class="breadcrumb-container">
-                <div class="back-arrow hstack">
+                <div class="back-arrow">
                     <?php include("tilbagepil.php"); ?>
                 </div>
             </div>
@@ -39,11 +39,11 @@ include("navbar.php");
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid mt-3">
     <div class="row">
         <div class="col-1"></div>
 
-        <div class="col-10">
+        <div class="col-10 text-primærtekstfarve">
 
             <div class="mb-5">
                 <h2 class="display-1 overskrift fw-medium">Din bestilling</h2>
