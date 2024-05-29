@@ -30,7 +30,9 @@ include("navbar.php");
         <div class="col-10">
             <div class="breadcrumb-container">
                 <div class="back-arrow hstack">
-                    <?php include("tilbagepil.php"); ?>
+                    <a href="produkter.php" class=" pe-5">
+                        <img src="img/tilbagepil.webp" class="img-fluid" alt="Tilbagepil" style="height: 70px">
+                    </a>
                     <?php include("broedkrummesti.php"); ?>
                 </div>
             </div>
@@ -119,7 +121,7 @@ include("navbar.php");
                     $produkter = $db->sql($sql, [':prodId' => $prodId]);
                     foreach ($produkter as $produkt) {
                         ?>
-                        <img src="img/<?php echo $produkt->prodProduktBillede ?>" class="img-fluid card-img-top pb-5"
+                        <img src="img/<?php echo $produkt->prodProduktBillede ?>" class="img-fluid card-img-top mb-5"
                              alt="" style="border-radius: 70px;">
                         <?php
                     }

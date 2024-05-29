@@ -24,7 +24,9 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
         <div class="col-10">
             <div class="breadcrumb-container">
                 <div class="back-arrow">
-                    <?php include("tilbagepil.php"); ?>
+                    <a href="produkt.php" class=" pe-5">
+                        <img src="img/tilbagepil.webp" class="img-fluid" alt="Tilbagepil" style="height: 70px">
+                    </a>
                 </div>
             </div>
         </div>

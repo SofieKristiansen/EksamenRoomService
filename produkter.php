@@ -25,7 +25,9 @@ include("navbar.php");
         <div class="col-10">
             <div class="breadcrumb-container">
                 <div class="back-arrow hstack">
-                    <?php include("tilbagepil.php"); ?>
+                    <a href="forside.php" class=" pe-5">
+                        <img src="img/tilbagepil.webp" class="img-fluid" alt="Tilbagepil" style="height: 70px">
+                    </a>
                     <?php include("broedkrummesti.php"); ?>
                 </div>
             </div>
