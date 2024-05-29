@@ -17,14 +17,16 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 <body class="bg-baggrundsfarve">
 <?php include("navbar.php"); ?>
 
-<div class="container-fluid pt-3">
+<div class="container-fluid pt-4">
     <div class="row">
         <div class="col-1"></div>
 
         <div class="col-10">
             <div class="breadcrumb-container">
-                <div class="back-arrow hstack">
-                    <?php include("tilbagepil.php"); ?>
+                <div class="back-arrow">
+                    <a href="produkt.php" class=" pe-5">
+                        <img src="img/tilbagepil.webp" class="img-fluid" alt="Tilbagepil" style="height: 70px">
+                    </a>
                 </div>
             </div>
         </div>
@@ -36,9 +38,9 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 <div class="container-fluid mt-3">
     <div class="row">
         <div class="col-1"></div>
-        <div class="col-10">
-            <div class="mb-5 text-primærtekstfarve">
-                <div class="display-2 overskrift fw-medium">Indkøbskurv</div>
+        <div class="col-10 text-primærtekstfarve">
+            <div class="mb-5">
+                <div class="display-1 overskrift fw-medium">Indkøbskurv</div>
             </div>
             <?php if (empty($cart)): ?>
                 <p class="brødtekst fs-1 fw-bold text-primærtekstfarve">Din indkøbskurv er tom.</p>
@@ -209,6 +211,8 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 
                 cartBadge.textContent = totalQuantity;
                 cartBadge.classList.toggle('visually-hidden', totalQuantity === 0);
+
+
             });
         });
     });
