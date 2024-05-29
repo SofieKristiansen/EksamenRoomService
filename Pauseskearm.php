@@ -16,7 +16,10 @@
 </video>
 
 <div>
-    <div id="time" class="text-sekundærtekstfarve overskrift text-center display-1 fw-bold klokken" style="position: absolute; top: 20%; left: 50%; transform: translate(-50%, -50%); width: 100%; font-size: 11em;">12.23</div>
+    <div id="date" class="text-sekundærtekstfarve brødtekst text-center" style="position: absolute; top: 11%; left: 50%; transform: translate(-50%, -50%); width: 100%; font-size: 2em;">Dato</div>
+    <div id="time" class="text-sekundærtekstfarve overskrift text-center display-1 fw-bold klokken" style="position: absolute; top: 15%; left: 50%; transform: translate(-50%, -50%); width: 100%; font-size: 11em;">12.23</div>
+
+    <div id="welcome" class="text-sekundærtekstfarve overskrift text-center display-3 fw-bold" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 8em;">Velkommen</div>
 </div>
 
 <div class="overlay-content">
@@ -25,24 +28,31 @@
     </a>
 </div>
 
-</body>
+
 
 <script>
     const time = document.querySelector('#time');
+    const dateElement = document.querySelector('#date');
 
     function showTime() {
         const date = new Date();
-        const hours = date.getHours().toString().padStart(2, 0);
-        const minutes = date.getMinutes().toString().padStart(2, 0);
+        const hours = date.getHours().toString().padStart(2, '0');
+        const minutes = date.getMinutes().toString().padStart(2, '0');
         const clock = hours + ':' + minutes;
-        time.innerHTML = clock
+        time.innerHTML = clock;
+
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear();
+        const fullDate = day + '/' + month + '/' + year;
+        dateElement.innerHTML = fullDate;
 
         setTimeout(showTime, 1000);
     }
 
     showTime();
-
 </script>
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
