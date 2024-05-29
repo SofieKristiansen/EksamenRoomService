@@ -209,6 +209,8 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 
                 cartBadge.textContent = totalQuantity;
                 cartBadge.classList.toggle('visually-hidden', totalQuantity === 0);
+
+
             });
         });
     });
