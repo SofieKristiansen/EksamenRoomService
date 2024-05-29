@@ -14,7 +14,7 @@ $cartCount = !empty($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
                     </div>
                     <div class="ms-auto mt-2">
                         <a href="#" class="" data-bs-toggle="modal" data-bs-target="#sprogModal">
-                            <img src="img/globus.webp" alt="" class="img-fluid col-1" style="width: 50px">
+                            <img src="img/globus.webp" alt="" class="img-fluid col-1" style="width: 60px">
                         </a>
                         <a href="Indkøbskurv.php" class="ms-4 position-relative">
                             <img src="img/Indkøbskurv.webp" alt="Indkøbskurv" class="img-fluid col-1" style="width: 60px">
