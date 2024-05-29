@@ -43,3 +43,11 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 .lukkeknap{
 	font-size: 2.5rem;
 }
+
+.pausekearm{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
