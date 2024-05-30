@@ -5,18 +5,13 @@ require "settings/init.php";
 <html lang="da">
 <head>
     <meta charset="utf-8">
-
     <title>Produkt</title>
-
     <meta name="robots" content="All">
     <meta name="author" content="Udgiver">
     <meta name="copyright" content="Information om copyright">
-
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-
 <body class="bg-baggrundsfarve">
 
 <?php
@@ -30,7 +25,7 @@ include("navbar.php");
         <div class="col-10">
             <div class="breadcrumb-container">
                 <div class="back-arrow hstack">
-                    <a href="produkter.php" class=" pe-5">
+                    <a href="produkter.php?kategoriId=<?php echo htmlspecialchars($_GET['kategoriId']); ?>" class=" pe-5">
                         <img src="img/tilbagepil.webp" class="img-fluid" alt="Tilbagepil" style="height: 70px">
                     </a>
                     <?php include("broedkrummesti.php"); ?>
@@ -47,24 +42,26 @@ include("navbar.php");
         <div class="col-1"></div>
         <div class="col-10 text-primærtekstfarve">
             <?php
-            if ($_GET['prodId']) {
+            if (!empty($_GET['prodId'])) {
                 $prodId = $_GET['prodId'];
                 $sql = "SELECT * FROM produkter WHERE prodId = :prodId";
                 $produkt = $db->sql($sql, [':prodId' => $prodId]);
-                foreach ($produkt as $prod) {
+                if (!empty($produkt)) {
+                    $produkt = $produkt[0];
                     ?>
                     <div class="kategori mb-5 d-flex text-primærtekstfarve">
                         <div class="row">
                             <div class="col-10">
-                                <h2 class="display-2 overskrift fw-medium"><?php echo $prod->prodNavn ?></h2>
+                                <h2 class="display-2 overskrift fw-medium"><?php echo $produkt->prodNavn ?></h2>
                             </div>
                         </div>
                     </div>
                     <?php
+                } else {
+                    echo "<p>Ugyldigt produkt-ID.</p>";
                 }
-                $produkt = $produkt[0];
             } else {
-                echo "<p>Ingen produktvalg fundet.</p>";
+                echo "<p>Produkt ID blev ikke angivet.</p>";
             }
             ?>
         </div>
@@ -87,19 +84,14 @@ include("navbar.php");
                         <div class="card-body">
                             <div class="brødtekst text-primærtekstfarve fs-1 fw-bold">Ingredienser</div>
                             <?php
-                            if ($_GET['prodId']) {
-                                $prodId = $_GET['prodId'];
-                                $sql = "SELECT * FROM ingredienser WHERE ingrProdukterId = :prodId ORDER BY ingrNavn ASC";
-                                $produkter = $db->sql($sql, [':prodId' => $prodId]);
-                                foreach ($produkter as $produkt) {
-                                    ?>
-                                    <ul class="brødtekst text-primærtekstfarve fs-2 pt-4" style="line-height: 1;">
-                                        <li><?php echo $produkt->ingrNavn ?></li>
-                                    </ul>
-                                    <?php
-                                }
-                            } else {
-                                echo "<p>Ingen produktvalg fundet.</p>";
+                            $sql = "SELECT * FROM ingredienser WHERE ingrProdukterId = :prodId ORDER BY ingrNavn ASC";
+                            $ingredienser = $db->sql($sql, [':prodId' => $prodId]);
+                            foreach ($ingredienser as $ingrediens) {
+                                ?>
+                                <ul class="brødtekst text-primærtekstfarve fs-2 pt-4" style="line-height: 1;">
+                                    <li><?php echo $ingrediens->ingrNavn ?></li>
+                                </ul>
+                                <?php
                             }
                             ?>
                             <div class="position-absolute bottom-0 end-0 pe-3 pb-3">
@@ -116,16 +108,8 @@ include("navbar.php");
 
                 <div class="col-6">
 
-                    <?php
-                    $sql = "SELECT * FROM produkter WHERE prodId = :prodId";
-                    $produkter = $db->sql($sql, [':prodId' => $prodId]);
-                    foreach ($produkter as $produkt) {
-                        ?>
-                        <img src="img/<?php echo $produkt->prodProduktBillede ?>" class="img-fluid card-img-top mb-5"
-                             alt="" style="border-radius: 70px;">
-                        <?php
-                    }
-                    ?>
+                    <img src="img/<?php echo $produkt->prodProduktBillede ?>" class="img-fluid card-img-top mb-5"
+                         alt="" style="border-radius: 70px;">
 
                     <div class="col-12">
                         <div class="card shadow bg-kortfarve pt-2 ps-2 pe-2 pb-1" style="border-radius: 70px;">
@@ -145,7 +129,7 @@ include("navbar.php");
                                 <div class="d-flex justify-content-between align-items-center mt-4 mb-2">
 
                                     <div class="brødtekst text-primærtekstfarve fs-2 pt-2 fw-bold" id="pris">
-                                        <?php echo number_format($produkt->prodPris, 2); ?> kr.
+                                        <?php echo number_format($produkt->prodPris, 2, ',', '.'); ?> kr.
                                     </div>
 
                                     <form id="addToCartForm" action="addToCart.php" method="post">
@@ -251,7 +235,7 @@ include("navbar.php");
                             </ul>
                         </div>
                         <div class="ms-3 fs-2 brødtekst text-primærtekstfarve fw-bold">
-                           + <?php echo $ingrediens->ingrPris ?> kr
+                            + <?php echo $ingrediens->ingrPris ?> kr
                         </div>
                     </div>
                 <?php } ?>
@@ -283,7 +267,7 @@ include("navbar.php");
         const opdaterPris = () => {
             const antal = Number(tal.textContent);
             const oprindeligPris = Number(tal.dataset.oprindeligPris);
-            const nyPris = (oprindeligPris * antal).toFixed(2);
+            const nyPris = (oprindeligPris * antal).toFixed(2).replace(".", ",");
             prisElement.textContent = `${nyPris} kr.`;
         };
 
@@ -346,4 +330,3 @@ include("navbar.php");
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
-
