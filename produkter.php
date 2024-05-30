@@ -38,6 +38,8 @@ include("navbar.php");
     </div>
 </div>
 
+
+<!-- Oversigt over produktkort -->
 <div class="container-fluid mt-3">
     <div class="row">
         <div class="col-1"></div>
@@ -79,6 +81,8 @@ include("navbar.php");
                                         <div class="card-header brødtekst text-primærtekstfarve ps-4 fs-2 fw-bold pb-3 pe-3 pt-3">
                                             <?php echo $produkt->prodNavn; ?>
                                                 <div class="d-flex align-items-center justify-content-center position-absolute" style="top: -15px; right: -15px;">
+
+                                                    <!-- + knap og funktion til at lægge den i kurv direkte -->
                                                     <button type="button" class="btn btn-secondary brødtekst rounded-circle bg-primærknap d-flex align-items-center justify-content-center add-to-cart" data-product-id="<?php echo $produkt->prodId; ?>" style="width: 70px; height: 70px; font-size: 55px; padding: 0;">+</button>
                                                     <form id="addToCartForm<?php echo $produkt->prodId; ?>" action="addToCart.php" method="post" style="display:none;">
                                                         <input type="hidden" name="productId" value="<?php echo $produkt->prodId; ?>">
@@ -89,10 +93,12 @@ include("navbar.php");
                                         <div class="card-body p-0 m-0">
                                             <img src="img/<?php echo $produkt->prodBillede ?>" class="img-fluid card-img-top" alt="">
                                         </div>
+
+                                        <!-- Ændret formatet til et komma -->
                                         <div class="card-footer">
                                             <div class="fs-1 fw- text-primærtekstfarve brødtekst fw-medium pt-3 ps-4">Pris</div>
                                             <div class="hstack justify-content-between fs-2 ps-4 brødtekst text-primærtekstfarve fw-bold" style="margin-top: -20px">
-                                                <?php echo $produkt->prodPris; ?> kr.
+                                                <?php echo number_format($produkt->prodPris, 2, ',', '.'); ?> kr.
                                                 <div class="pe-2 pb-3">
                                                     <a href="produkt.php?prodId=<?php echo $produkt->prodId ?>">
                                                         <button type="button" class="btn shadow me-3 rounded-pill btn-primærknap fs-2 brødtekst" style="width: 150px;">Se mere</button>
