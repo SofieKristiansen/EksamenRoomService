@@ -1,6 +1,6 @@
 <?php
 require "settings/init.php";
-$_SESSION['referrer'] = $_SERVER['HTTP_REFERER'];
+
 ?>
 <!DOCTYPE html>
 <html lang="da">
@@ -27,7 +27,7 @@ include("navbar.php");
         <div class="col-10">
             <div class="breadcrumb-container">
                 <div class="back-arrow hstack">
-                    <a href="forside.php" class=" pe-5">
+                    <a href="javascript:void(0);" onclick="history.back(-1)" class="pe-5">
                         <img src="img/tilbagepil.webp" class="img-fluid" alt="Tilbagepil" style="height: 70px">
                     </a>
                     <?php include("broedkrummesti.php"); ?>

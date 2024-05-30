@@ -1,6 +1,6 @@
 <?php
 require "settings/init.php";
-$_SESSION['referrer'] = $_SERVER['HTTP_REFERER'];
+
 ?>
 
 <!DOCTYPE html>

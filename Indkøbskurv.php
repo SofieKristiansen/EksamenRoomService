@@ -1,7 +1,11 @@
 <?php
 require "settings/init.php";
 session_start();
+
 $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
+$kategoriId = isset($_GET['kategoriId']) ? $_GET['kategoriId'] : '';
+$prodId = isset($_GET['prodId']) ? $_GET['prodId'] : '';
+
 ?>
 <!DOCTYPE html>
 <html lang="da">
@@ -24,7 +28,7 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
         <div class="col-10">
             <div class="breadcrumb-container">
                 <div class="back-arrow">
-                    <a href="produkt.php" class=" pe-5">
+                    <a href="javascript:void(0);" onclick="history.back(-1)" class="pe-5">
                         <img src="img/tilbagepil.webp" class="img-fluid" alt="Tilbagepil" style="height: 70px">
                     </a>
                 </div>
@@ -166,7 +170,7 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
                     <div class="brødtekst text-primærtekstfarve fs-2 fw-bold me-5 mt-5 mb-3" id="total-pris"> Total:
                         <?php echo number_format($totalPris, 2); ?> kr.
                     </div>
-                    <a href="DinBetaling.php">
+                    <a href="DinBetaling.php?kategoriId=<?php echo htmlspecialchars($kategoriId); ?>">
                         <button type="button" class="btn btn-lg shadow rounded-pill btn-primærknap fs-3 brødtekst ms-3 me-5">
                             Fortsæt
                         </button>

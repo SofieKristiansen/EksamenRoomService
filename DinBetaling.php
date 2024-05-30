@@ -2,13 +2,9 @@
 require "settings/init.php";
 session_start();
 
-if (!isset($_SESSION['referrer']) || strpos($_SERVER['HTTP_REFERER'], 'DinBetaling.php') === false) {
-    $_SESSION['referrer'] = $_SERVER['HTTP_REFERER'];
-}
-
 $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 $kategoriId = isset($_GET['kategoriId']) ? $_GET['kategoriId'] : '';
-$referrer = isset($_SESSION['referrer']) ? $_SESSION['referrer'] : 'Indkøbskurv.php'; // Default til indkøbskurv hvis ingen referrer
+
 ?>
 <!DOCTYPE html>
 <html lang="da">
@@ -39,7 +35,7 @@ include("navbar.php");
         <div class="col-10">
             <div class="breadcrumb-container">
                 <div class="back-arrow">
-                    <a href="<?php echo htmlspecialchars($referrer); ?>" class="pe-5">
+                    <a href="javascript:void(0);" onclick="history.back(-1)" class="pe-5">
                         <img src="img/tilbagepil.webp" class="img-fluid" alt="Tilbagepil" style="height: 70px">
                     </a>
                 </div>
@@ -48,8 +44,6 @@ include("navbar.php");
         <div class="col-1"></div>
     </div>
 </div>
-
-
 <div class="container-fluid mt-3">
     <div class="row">
         <div class="col-1"></div>

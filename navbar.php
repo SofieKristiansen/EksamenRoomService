@@ -1,6 +1,9 @@
 <?php
 session_start();
 $cartCount = !empty($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
+$lastKategoriId = isset($_SESSION['lastKategoriId']) ? $_SESSION['lastKategoriId'] : '';
+$lastProdId = isset($_SESSION['lastProdId']) ? $_SESSION['lastProdId'] : '';
+
 ?>
 
 
