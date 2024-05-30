@@ -12,12 +12,13 @@ require "settings/init.php";
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body class="bg-baggrundsfarve" style="overflow-y: auto">
+<body class="bg-baggrundsfarve pb-5" style="overflow-y: auto">
 
 <?php
 include("navbar.php");
 ?>
 
+<!-- Tilbagepil og brødkrummesti -->
 <div class="container-fluid pt-4">
     <div class="row">
         <div class="col-1"></div>
