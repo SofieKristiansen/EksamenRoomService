@@ -16,23 +16,25 @@
 </video>
 
 <div>
-    <div id="date" class="text-sekundærtekstfarve brødtekst text-center" style="position: absolute; top: 11%; left: 50%; transform: translate(-50%, -50%); width: 100%; font-size: 2em;">Dato</div>
-    <div id="time" class="text-sekundærtekstfarve overskrift text-center display-1 fw-bold klokken" style="position: absolute; top: 18%; left: 50%; transform: translate(-50%, -50%); width: 100%; font-size: 11em;">12.23</div>
+    <div id="date" class="text-sekundærtekstfarve brødtekst text-center fs-1" style="position: absolute; top: 11%; left: 50%; transform: translate(-50%, -50%); width: 100%;">Dato</div>
+    <div id="time" class="text-sekundærtekstfarve overskrift text-center display-1 fw-bold klokken" style="position: absolute; top: 17%; left: 50%; transform: translate(-50%, -50%); width: 100%; font-size: 11em;"></div>
 
-    <div id="welcome" class="text-sekundærtekstfarve overskrift text-center display-3 fw-bold" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 8em;">Velkommen</div>
+    <div id="welcome" class="display-3" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 8em;">
+        <p class="text-sekundærtekstfarve fw-bold overskrift text-center ">Velkommen</p>
+    </div>
 </div>
 
 <div class="overlay-content">
-    <a href="forside.php" class="btn me-3 btn-lg rounded-pill btn-primærknap brødtekst d-flex justify-content-center align-items-center" style="width: 520px; height: 100px;">
-        <h1 class="m-0">Bestil roomservice</h1>
+    <a href="forside.php" class="btn me-3 btn-lg rounded-pill btn-primærknap d-flex justify-content-center align-items-center" style="width: 520px; height: 100px;">
+        <p class="m-0 display-5 fw-medium brødtekst">Bestil roomservice</p>
     </a>
 </div>
-
-
 
 <script>
     const time = document.querySelector('#time');
     const dateElement = document.querySelector('#date');
+    const weekdays = ['søndag', 'mandag', 'tirsdag', 'onsdag', 'torsdag', 'fredag', 'lørdag'];
+    const months = ['januar', 'februar', 'marts', 'april', 'maj', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'december'];
 
     function showTime() {
         const date = new Date();
@@ -41,10 +43,11 @@
         const clock = hours + ':' + minutes;
         time.innerHTML = clock;
 
-        const day = date.getDate().toString().padStart(2, '0');
-        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const dayOfWeek = weekdays[date.getDay()];
+        const day = date.getDate();
+        const month = months[date.getMonth()];
         const year = date.getFullYear();
-        const fullDate = day + '-' + month + '-' + year;
+        const fullDate = `${dayOfWeek} ${day}. ${month}`;
         dateElement.innerHTML = fullDate;
 
         setTimeout(showTime, 1000);
