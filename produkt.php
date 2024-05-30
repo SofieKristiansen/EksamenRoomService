@@ -145,18 +145,18 @@ include("navbar.php");
                         <div class="d-flex justify-content-between align-items-start">
                             <div class="d-flex flex-column align-items-start me-5 ps-3 pt-4">
                                 <span class="brødtekst text-primærtekstfarve fs-4 fw-bold">Leveringstid</span>
-                                <img src="img/leveringstid.webp" class="mx-auto my-2" style="width: 50px; height:auto;">
+                                <img src="img/leveringstid.webp" alt="Leveringstid" class="mx-auto my-2" style="width: 50px; height:auto;">
                                 <span class="brødtekst text-primærtekstfarve fs-5 text-center w-100">20 minutter</span>
                             </div>
                             <div class="d-flex flex-column align-items-center me-5">
                                 <div class="col-12 text-center pt-4">
                                     <span class="brødtekst text-primærtekstfarve fw-bold fs-4">Anmeldelser</span>
                                 </div>
-                                <img src="img/stjerner.webp" class="mx-auto my-2" style="width: auto; height:40px; margin: 10px 0;">
+                                <img src="img/stjerner.webp" alt="Anmeldelser" class="mx-auto my-2" style="width: auto; height:40px; margin: 10px 0;">
                                 <span class="brødtekst text-primærtekstfarve fs-5 text-center">(4.5/5 baseret på 20 anmeldelser)</span>
                             </div>
                             <div class="d-flex align-items-center pt-4 me-5" style="height: 140px;">
-                                <img src="img/StopMadspil.png" alt="" style="height: 140px; width: auto;">
+                                <img src="img/StopMadspil.png" alt="Refood" style="height: 140px; width: auto;">
                             </div>
                         </div>
                     </div>
@@ -182,11 +182,11 @@ include("navbar.php");
                 <p class="fw-bold fs-1">Din bestilling</p>
                 <p class="fs-2 fw-medium"><?php echo $produkt->prodNavn; ?></p>
                 <p class="fs-2 fw-medium">Tilvalg:</p>
-                <p class="fs-2 fw-medium fw">Antal: <span id="modalQuantity"></span></p>
+                <p class="fs-2 fw-medium">Antal: <span id="modalQuantity"></span></p>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve fs-4 fw-medium brødtekst" style="width: 160px;">Bestil mere</a>
-                <a href="Indkøbskurv.php" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve fs-4 fw-medium brødtekst" style="width: 160px;">Gå til kurv</a>
+                <a href="produkter.php?kategoriId=<?php echo htmlspecialchars($_GET['kategoriId']); ?>" class="btn me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve fs-3 fw-medium brødtekst" style="width: 180px;">Bestil mere</a>
+                <a href="Indkøbskurv.php" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap text-sekundærtekstfarve fs-3 fw-medium brødtekst" style="width: 180px;">Gå til kurv</a>
             </div>
         </div>
     </div>
