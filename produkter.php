@@ -100,6 +100,7 @@ include("navbar.php");
                                             <div class="hstack justify-content-between fs-2 ps-4 brødtekst text-primærtekstfarve fw-bold" style="margin-top: -20px">
                                                 <?php echo number_format($produkt->prodPris, 2, ',', '.'); ?> kr.
                                                 <div class="pe-2 pb-3">
+                                                    <!--Tilføjelse af kategoriId til "Se mere"-linket i produkter.php for korrekt data -->
                                                     <a href="produkt.php?prodId=<?php echo $produkt->prodId ?>&kategoriId=<?php echo $kateId; ?>">
                                                         <button type="button" class="btn shadow me-3 rounded-pill btn-primærknap fs-2 brødtekst" style="width: 150px;">Se mere</button>
                                                     </a>
