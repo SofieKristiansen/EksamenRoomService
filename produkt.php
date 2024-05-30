@@ -1,6 +1,8 @@
 <?php
 require "settings/init.php";
+$_SESSION['referrer'] = $_SERVER['HTTP_REFERER'];
 ?>
+
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -125,7 +127,7 @@ include("navbar.php");
                                     <div class="brødtekst text-primærtekstfarve fs-2 pt-3 ps-2 fw-bold" id="pris">
                                         <?php echo number_format($produkt->prodPris, 2, ',', '.'); ?> kr.
                                     </div>
-                                    <form id="addToCartForm" action="addToCart.php" method="post">
+                                    <form id="addToCartForm" action="addToCart.php?kategoriId=<?php echo htmlspecialchars($_GET['kategoriId']); ?>" method="post">
                                         <input type="hidden" name="productId" value="<?php echo $prodId; ?>">
                                         <input type="hidden" name="quantity" value="1" id="quantityInput">
                                         <button type="submit" class="btn btn-lg shadow rounded-pill btn-primærknap fs-3 brødtekst ms-3 me-1">
@@ -186,7 +188,7 @@ include("navbar.php");
             </div>
             <div class="modal-footer">
                 <a href="produkter.php?kategoriId=<?php echo htmlspecialchars($_GET['kategoriId']); ?>" class="btn me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve fs-3 fw-medium brødtekst" style="width: 180px;">Bestil mere</a>
-                <a href="Indkøbskurv.php" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap text-sekundærtekstfarve fs-3 fw-medium brødtekst" style="width: 180px;">Gå til kurv</a>
+                <a href="Indkøbskurv.php?prodId=<?php echo htmlspecialchars($_GET['prodId']); ?>&kategoriId=<?php echo htmlspecialchars($_GET['kategoriId']); ?>" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap text-sekundærtekstfarve fs-3 fw-medium brødtekst" style="width: 180px;">Gå til kurv</a>
             </div>
         </div>
     </div>
