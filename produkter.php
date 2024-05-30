@@ -1,5 +1,6 @@
 <?php
 require "settings/init.php";
+$_SESSION['referrer'] = $_SERVER['HTTP_REFERER'];
 ?>
 <!DOCTYPE html>
 <html lang="da">
@@ -84,7 +85,7 @@ include("navbar.php");
 
                                                 <!-- + knap og funktion til at lægge den i kurv direkte -->
                                                 <button type="button" class="btn btn-secondary brødtekst rounded-circle bg-primærknap d-flex align-items-center justify-content-center add-to-cart" data-product-id="<?php echo $produkt->prodId; ?>" style="width: 70px; height: 70px; font-size: 55px; padding: 0;">+</button>
-                                                <form id="addToCartForm<?php echo $produkt->prodId; ?>" action="addToCart.php" method="post" style="display:none;">
+                                                <form id="addToCartForm<?php echo $produkt->prodId; ?>" action="addToCart.php?kategoriId=<?php echo htmlspecialchars($kateId); ?>" method="post" style="display:none;">
                                                     <input type="hidden" name="productId" value="<?php echo $produkt->prodId; ?>">
                                                     <input type="hidden" name="quantity" value="1">
                                                 </form>
