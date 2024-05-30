@@ -25,7 +25,7 @@
 </div>
 
 <div class="overlay-content">
-    <a href="forside.php" class="btn me-3 btn-lg rounded-pill btn-primærknap d-flex justify-content-center align-items-center" style="width: 520px; height: 100px;">
+    <a href="forside.php" class="btn me-3 mt-3 btn-lg rounded-pill btn-primærknap d-flex justify-content-center align-items-center" style="width: 520px; height: 100px;">
         <p class="m-0 display-5 fw-medium brødtekst">Bestil roomservice</p>
     </a>
 </div>
