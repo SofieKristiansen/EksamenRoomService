@@ -12,7 +12,7 @@ require "settings/init.php";
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body class="bg-baggrundsfarve">
+<body class="bg-baggrundsfarve" style="overflow-y: hidden;">
 
 <?php
 include("navbar.php");
@@ -21,11 +21,9 @@ include("navbar.php");
 <div class="container-fluid pt-4">
     <div class="row">
         <div class="col-1"></div>
-
         <div class="col-10">
             <div class="breadcrumb-container">
                 <div class="back-arrow hstack">
-                    <!-- Tilføjelse af kategoriId til tilbagepilen i produkt.php for korrekt data -->
                     <a href="produkter.php?kategoriId=<?php echo htmlspecialchars($_GET['kategoriId']); ?>" class=" pe-5">
                         <img src="img/tilbagepil.webp" class="img-fluid" alt="Tilbagepil" style="height: 70px">
                     </a>
@@ -33,11 +31,12 @@ include("navbar.php");
                 </div>
             </div>
         </div>
-
         <div class="col-1"></div>
     </div>
 </div>
 
+
+<!-- Overskrift af produktnavn -->
 <div class="container-fluid mt-3">
     <div class="row">
         <div class="col-1"></div>
@@ -71,18 +70,18 @@ include("navbar.php");
 </div>
 
 
+<!-- Kort med tilpas funktionen og ingredienslisten og +/- knappen med tæller funktion og læg i kurv knap -->
 <div class="container-fluid">
     <div class="row">
-
         <div class="col-1"></div>
 
         <div class="col-10">
-
             <div class="row g-5">
 
+                <!-- Ingrediens kort og tilpas knap -->
                 <div class="col-6">
-                    <div class="card shadow bg-kortfarve pt-4 ps-3 pb-1 position-relative" style="border-radius: 70px; height: 690px;">
-                        <div class="card-body">
+                    <div class="card shadow bg-kortfarve pt-4 ps-3 pb-1 position-relative d-flex flex-column" style="border-radius: 70px; height: 700px;">
+                        <div class="card-body flex-grow-1 d-flex flex-column">
                             <div class="brødtekst text-primærtekstfarve fs-1 fw-bold">Ingredienser</div>
                             <?php
                             $sql = "SELECT * FROM ingredienser WHERE ingrProdukterId = :prodId ORDER BY ingrNavn ASC";
@@ -95,9 +94,9 @@ include("navbar.php");
                                 <?php
                             }
                             ?>
-                            <div class="position-absolute bottom-0 end-0 pe-3 pb-3">
+                            <div class="mt-auto d-flex justify-content-end">
                                 <a href="#">
-                                    <button type="button" class="btn btn-lg shadow rounded-pill btn-primærknap fs-3 brødtekst ms-3 mb-3" style="width: 150px;" data-bs-toggle="modal" data-bs-target="#tilpasModal">
+                                    <button type="button" class="btn btn-lg shadow rounded-pill btn-primærknap fs-3 brødtekst me-2" style="width: 150px;" data-bs-toggle="modal" data-bs-target="#tilpasModal">
                                         Tilpas
                                     </button>
                                 </a>
@@ -106,57 +105,49 @@ include("navbar.php");
                     </div>
                 </div>
 
-
+                <!-- Læg i kurv kort med pristæller -->
                 <div class="col-6">
-
-                    <img src="img/<?php echo $produkt->prodProduktBillede ?>" class="img-fluid card-img-top mb-5"
-                         alt="" style="border-radius: 70px;">
+                    <img src="img/<?php echo $produkt->prodProduktBillede ?>" class="img-fluid card-img-top mb-5" alt="" style="border-radius: 70px;">
 
                     <div class="col-12">
-                        <div class="card shadow bg-kortfarve pt-2 ps-2 pe-2 pb-1" style="border-radius: 70px;">
-                            <div class="card-body">
-
+                        <div class="card shadow bg-kortfarve pt-2 ps-2 pe-2 pb-1 d-flex flex-column" style="border-radius: 70px; height: 210px;">
+                            <div class="card-body flex-grow-1 d-flex flex-column justify-content-between">
                                 <div class="row align-items-center mb-3">
                                     <div class="col">
-                                        <div class="btn bg-white border-outlinefarve d-flex justify-content-between brødtekst text-primærtekstfarve ps-4 pe-4"
-                                             style="border-radius: 70px; width: 100%">
+                                        <div class="btn bg-white border-outlinefarve d-flex justify-content-between brødtekst text-primærtekstfarve ps-4 pe-4" style="border-radius: 70px; width: 100%">
                                             <div class="minus display-4 fw-medium">-</div>
                                             <div class="tal display-4 fw-medium">1</div>
                                             <div class="plus display-4 fw-medium">+</div>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="d-flex justify-content-between align-items-center mt-4 mb-2">
-
-                                    <div class="brødtekst text-primærtekstfarve fs-2 pt-2 fw-bold" id="pris">
+                                <div class="d-flex justify-content-between align-items-center mt-3 mb-2">
+                                    <div class="brødtekst text-primærtekstfarve fs-2 pt-3 ps-2 fw-bold" id="pris">
                                         <?php echo number_format($produkt->prodPris, 2, ',', '.'); ?> kr.
                                     </div>
-
                                     <form id="addToCartForm" action="addToCart.php" method="post">
                                         <input type="hidden" name="productId" value="<?php echo $prodId; ?>">
                                         <input type="hidden" name="quantity" value="1" id="quantityInput">
-                                        <button type="submit" class="btn btn-lg shadow rounded-pill btn-primærknap fs-3 brødtekst ms-3">
+                                        <button type="submit" class="btn btn-lg shadow rounded-pill btn-primærknap fs-3 brødtekst ms-3 me-1">
                                             Læg i kurv
                                         </button>
                                     </form>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
 
+
+                <!-- Kort for leveringstid, anmeldelser og Refood ikon -->
                 <div class="col-12 mt-4">
                     <div class="card shadow bg-kortfarve pt-2 ps-3 pb-4" style="border-radius: 70px;">
                         <div class="d-flex justify-content-between align-items-start">
-
                             <div class="d-flex flex-column align-items-start me-5 ps-3 pt-4">
                                 <span class="brødtekst text-primærtekstfarve fs-4 fw-bold">Leveringstid</span>
                                 <img src="img/leveringstid.webp" class="mx-auto my-2" style="width: 50px; height:auto;">
                                 <span class="brødtekst text-primærtekstfarve fs-5 text-center w-100">20 minutter</span>
                             </div>
-
                             <div class="d-flex flex-column align-items-center me-5">
                                 <div class="col-12 text-center pt-4">
                                     <span class="brødtekst text-primærtekstfarve fw-bold fs-4">Anmeldelser</span>
@@ -164,7 +155,6 @@ include("navbar.php");
                                 <img src="img/stjerner.webp" class="mx-auto my-2" style="width: auto; height:40px; margin: 10px 0;">
                                 <span class="brødtekst text-primærtekstfarve fs-5 text-center">(4.5/5 baseret på 20 anmeldelser)</span>
                             </div>
-
                             <div class="d-flex align-items-center pt-4 me-5" style="height: 140px;">
                                 <img src="img/StopMadspil.png" alt="" style="height: 140px; width: auto;">
                             </div>
@@ -172,30 +162,28 @@ include("navbar.php");
                     </div>
                 </div>
 
-
             </div>
         </div>
-    </div>
 
-    <div class="col-1"></div>
+        <div class="col-1"></div>
+    </div>
 </div>
 
+
+<!-- Din bestilling modal-vindue -->
 <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content border-outlinefarve" style="border-radius: 30px">
-
             <div class="modal-header">
                 <div class="modal-title text-primærtekstfarve" id="exampleModalLabel"></div>
                 <button type="button" class="btn-close btn-close-primærfarve lukkeknap" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
             <div class="modal-body text-primærtekstfarve brødtekst">
                 <p class="fw-bold fs-1">Din bestilling</p>
                 <p class="fs-2 fw-medium"><?php echo $produkt->prodNavn; ?></p>
                 <p class="fs-2 fw-medium">Tilvalg:</p>
                 <p class="fs-2 fw-medium fw">Antal: <span id="modalQuantity"></span></p>
             </div>
-
             <div class="modal-footer">
                 <a href="#" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve fs-4 fw-medium brødtekst" style="width: 160px;">Bestil mere</a>
                 <a href="Indkøbskurv.php" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve fs-4 fw-medium brødtekst" style="width: 160px;">Gå til kurv</a>
@@ -204,8 +192,7 @@ include("navbar.php");
     </div>
 </div>
 
-
-
+<!-- Tilpas din bestilling modal-vindue -->
 <div class="modal fade" id="tilpasModal" tabindex="-1" aria-labelledby="tilpasModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" style="max-width: 600px;">
         <div class="modal-content border-outlinefarve">
@@ -221,7 +208,6 @@ include("navbar.php");
                 $ingredienser = $db->sql($sql, $bind);
                 foreach ($ingredienser as $index => $ingrediens) {
                     ?>
-
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <div class="dropdown" style="width: 300px;">
                             <button class="btn btn-sekundærknap border-outlinefarve rounded-pill fs-2 fw-bold brødtekst text-primærtekstfarve text-start ps-4 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
@@ -250,9 +236,8 @@ include("navbar.php");
 </div>
 
 
+<!-- Javascript for funktionalitet -->
 <script>
-
-
     document.addEventListener('DOMContentLoaded', () => {
         const minus = document.querySelector(".minus");
         const plus = document.querySelector(".plus");
@@ -323,7 +308,6 @@ include("navbar.php");
                 .catch(error => console.error('Fejl ved opdatering af kurv:', error));
         });
     });
-
 
 </script>
 
