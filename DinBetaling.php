@@ -1,7 +1,14 @@
 <?php
 require "settings/init.php";
 session_start();
+
+if (!isset($_SESSION['referrer']) || strpos($_SERVER['HTTP_REFERER'], 'DinBetaling.php') === false) {
+    $_SESSION['referrer'] = $_SERVER['HTTP_REFERER'];
+}
+
 $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
+$kategoriId = isset($_GET['kategoriId']) ? $_GET['kategoriId'] : '';
+$referrer = isset($_SESSION['referrer']) ? $_SESSION['referrer'] : 'Indkøbskurv.php'; // Default til indkøbskurv hvis ingen referrer
 ?>
 <!DOCTYPE html>
 <html lang="da">
@@ -25,23 +32,23 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 include("navbar.php");
 ?>
 
+<!-- Tilbagepil -->
 <div class="container-fluid pt-4">
     <div class="row">
         <div class="col-1"></div>
-
         <div class="col-10">
             <div class="breadcrumb-container">
-                <div class="back-arrow hstack">
-                    <a href="Indkøbskurv.php" class=" pe-5">
+                <div class="back-arrow">
+                    <a href="<?php echo htmlspecialchars($referrer); ?>" class="pe-5">
                         <img src="img/tilbagepil.webp" class="img-fluid" alt="Tilbagepil" style="height: 70px">
                     </a>
                 </div>
             </div>
         </div>
-
         <div class="col-1"></div>
     </div>
 </div>
+
 
 <div class="container-fluid mt-3">
     <div class="row">
