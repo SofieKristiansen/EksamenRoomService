@@ -22,7 +22,7 @@ $kategoriId = isset($_GET['kategoriId']) ? $_GET['kategoriId'] : '';
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body class="bg-baggrundsfarve">
+<body class="bg-baggrundsfarve pb-5" style="overflow-y: auto">
 
 <?php
 include("navbar.php");
