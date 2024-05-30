@@ -179,7 +179,7 @@ include("navbar.php");
                 <button type="button" class="btn-close btn-close-primærfarve lukkeknap" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body text-primærtekstfarve brødtekst">
-                <p class="fw-bold fs-1">Din bestilling</p>
+                <p class="fs-1 fw-bold">Din bestilling</p>
                 <p class="fs-2 fw-medium"><?php echo $produkt->prodNavn; ?></p>
                 <p class="fs-2 fw-medium">Tilvalg:</p>
                 <p class="fs-2 fw-medium">Antal: <span id="modalQuantity"></span></p>
