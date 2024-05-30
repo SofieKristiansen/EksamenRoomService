@@ -57,7 +57,7 @@ include("navbar.php");
                 <div class="row">
                     <div class="d-flex flex-column justify-content-between">
                         <div class="col-12 mb-3 text-start">
-                            <h2 class="brødtekst text-primærtekstfarve fw-bold fs-2 pt-4 ps-5" style="line-height: 1;">Oversigt</h2>
+                            <p class="brødtekst text-primærtekstfarve fw-bold fs-1 mt-4 pb-4 pt-4 ps-5" style="line-height: 1;">Oversigt</p>
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@ include("navbar.php");
                                             <p class="brødtekst text-primærtekstfarve fs-2">Antal: <?php echo $quantity; ?></p>
                                         </div>
                                         <div class="col-6 text-end">
-                                            <h2 class="brødtekst text-primærtekstfarve text-bold fs-2" style="line-height: 1;">
+                                            <h2 class="brødtekst text-primærtekstfarve me-5 text-bold fs-2" style="line-height: 1;">
                                                 <?php echo number_format($produkt->prodPris * $quantity, 2); ?> kr.
                                             </h2>
                                         </div>
@@ -92,14 +92,14 @@ include("navbar.php");
                                 echo "<p class='brødtekst text-primærtekstfarve fs-2'>Din indkøbskurv er tom.</p>";
                             }
                             ?>
-                            <div class="row mt-5">
+                            <div class="row mt-5 mb-4">
                                 <div class="col-6">
-                                    <h2 class="brødtekst text-primærtekstfarve text-bold fs-2" style="line-height: 1;">
-                                        Total
+                                    <h2 class="brødtekst text-primærtekstfarve text-bold fs-2 fw-bold" style="line-height: 1;">
+                                        Total:
                                     </h2>
                                 </div>
                                 <div class="col-6 text-end">
-                                    <h2 class="brødtekst text-primærtekstfarve text-bold fs-2" style="line-height: 1;" id="total-pris">
+                                    <h2 class="brødtekst text-primærtekstfarve text-bold fs-2 me-5 mb-3 fw-bold" style="line-height: 1;" id="total-pris">
                                         <?php echo number_format($totalPris, 2); ?> kr.
                                     </h2>
                                 </div>
@@ -120,7 +120,7 @@ include("navbar.php");
                     </div>
 
                     <div class="col-3"></div>
-                    <div class="ms-2 ps-5">
+                    <div class="ms-2 ms-5 ps-5">
                         <div class="brødtekst text-primærtekstfarve fs-2 pt-2">
 
                             <div class="form-check p-3">
