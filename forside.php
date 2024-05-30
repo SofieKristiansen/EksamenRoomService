@@ -24,10 +24,14 @@ require "settings/init.php";
 include("navbar.php");
 ?>
 
+
+<!-- Baggrundsbillede -->
 <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1;">
     <img src="img/blossom.png" alt="background" class="position-absolute top-0 start-0 w-100 h-100" style="object-fit: cover;">
 </div>
 
+
+<!-- Overskrift "Hotel Strandparken" -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-1"></div>
@@ -41,6 +45,7 @@ include("navbar.php");
 </div>
 
 
+<!-- Kategorier og tidspunkter -->
 <div class="container-fluid mt-5 pt-5">
     <div class="row">
         <div class="col-1"></div>
@@ -56,7 +61,7 @@ include("navbar.php");
                             <img src="img/<?php echo $kategori->kateIkoner?>" alt="" style="width: 4em;" class="me-4">
                             <h2 class="display-2 fw-medium text-primærtekstfarve mb-0"><?php echo $kategori->kateNavn?></h2>
                         </a>
-                        <h2 class="fs-1 overskrift fw-medium text-primærtekstfarve mb-0"><?php echo $kategori->kateTider?></h2>
+                        <p class="fs-1 overskrift fw-bold text-primærtekstfarve mb-0"><?php echo $kategori->kateTider?></p>
                     </div>
                     <?php
                 }
@@ -68,6 +73,7 @@ include("navbar.php");
 </div>
 
 
+<!-- Footer - Informationstekst" -->
 <footer class="footer bg-sekundærfarve fixed-bottom">
     <div class="container-fluid">
         <div class="row">
