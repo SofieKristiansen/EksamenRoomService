@@ -196,12 +196,12 @@ include("navbar.php");
 
 <!-- Tilpas din bestilling modal-vindue -->
 <div class="modal fade" id="tilpasModal" tabindex="-1" aria-labelledby="tilpasModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" style="max-width: 600px;">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 650px;">
         <div class="modal-content border-outlinefarve">
             <div class="modal-header">
                 <button type="button" class="btn-close btn-close-primærfarve lukkeknap" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body m-2">
                 <div class="modal-title text-primærtekstfarve fs-1 brødtekst pb-4 fw-bold" id="tilpasModalLabel">Tilpas din bestilling</div>
                 <div class="text-primærtekstfarve fs-2 brødtekst pb-4 fw-medium"><?php echo $produkt->prodNavn; ?></div>
                 <?php
@@ -240,6 +240,8 @@ include("navbar.php");
 
 <!-- Javascript for funktionalitet -->
 <script>
+
+
     document.addEventListener('DOMContentLoaded', () => {
         const minus = document.querySelector(".minus");
         const plus = document.querySelector(".plus");
