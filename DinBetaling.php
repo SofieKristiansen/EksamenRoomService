@@ -134,23 +134,19 @@ include("navbar.php");
                     <div class="col-3"></div>
                     <div class="ms-5 ps-5">
                         <div class="brødtekst text-primærtekstfarve fs-2 pt-2">
-
                             <div class="form-check p-3">
                                 <input class="form-check-input form-check-input" type="radio" name="betaling" id="flexCheckDefault1" value="online">
                                 <label class="form-check-label" for="flexCheckDefault1">Betal online</label>
                             </div>
-
                             <div class="form-check p-3">
                                 <input class="form-check-input" type="radio" name="betaling" id="flexCheckDefault2" value="checkud">
                                 <label class="form-check-label" for="flexCheckDefault2">Betal ved check ud</label>
                             </div>
-
                             <div class="form-check p-3 pb-4 d-flex justify-content-between align-items-center">
                                 <div>
                                     <input class="form-check-input" type="radio" name="betaling" id="flexCheckDefault3" value="levering">
                                     <label class="form-check-label" for="flexCheckDefault3">Betal ved levering</label>
                                 </div>
-
                                 <a href="#" class="me-4 pe-5">
                                     <button type="button" id="betalKnappen" class="btn btn-lg rounded-pill btn-primærknap fs-3 brødtekst" style="width: 180px">
                                         Betal
@@ -296,16 +292,12 @@ include("navbar.php");
 
 <script>
 
-
-    // Denne funktion tjekker, om feltet for værelsesnummer er tomt eller ej.
-    function checkVaerelsesnummer(event) {
+    function checkVaerelsesnummer() {
         const vaerelsesnummer = document.getElementById('vaerelsesnummer').value;
         const errorElement = document.getElementById('vaerelsesnummer-error');
 
-        // Hvis værelsesnummeret er tomt, vises en rød fejlmeddelelse, og standardhandling (f.eks. form submission) forhindres.
         if (vaerelsesnummer.trim() === '') {
             errorElement.style.display = 'block';
-            event.preventDefault(); // Forhindre standardhandling
             return false;
         } else {
             errorElement.style.display = 'none';
@@ -313,55 +305,82 @@ include("navbar.php");
         }
     }
 
-    // Venter på, at hele dokumentet er færdig med at blive indlæst, før det tilføjer event listeners.
     document.addEventListener('DOMContentLoaded', function () {
-        // Finder alle radioknapper for betalingsmetoder og betalingsknappen.
         const radiobuttons = document.querySelectorAll('input[name="betaling"]');
         const betalKnappen = document.getElementById('betalKnappen');
 
-        // Funktion til at opdatere data-bs-target attributten baseret på valgt betalingsmetode.
         function updatePaymentMethod() {
-            const selectedPaymentMethod = document.querySelector('input[name="betaling"]:checked');
-            if (selectedPaymentMethod) {
-                const paymentMethod = selectedPaymentMethod.value;
-                let targetModal = '';
+            if (!checkVaerelsesnummer()) {
+                betalKnappen.removeAttribute('data-bs-toggle');
+                betalKnappen.removeAttribute('data-bs-target');
+            } else {
+                const selectedPaymentMethod = document.querySelector('input[name="betaling"]:checked');
+                if (selectedPaymentMethod) {
+                    const paymentMethod = selectedPaymentMethod.value;
+                    let targetModal = '';
 
-                if (paymentMethod === 'online') {
-                    targetModal = '#modalOnline';
-                } else if (paymentMethod === 'checkud') {
-                    targetModal = '#modalCheckUd';
-                } else if (paymentMethod === 'levering') {
-                    targetModal = '#modalLevering';
+                    if (paymentMethod === 'online') {
+                        targetModal = '#modalOnline';
+                    } else if (paymentMethod === 'checkud') {
+                        targetModal = '#modalCheckUd';
+                    } else if (paymentMethod === 'levering') {
+                        targetModal = '#modalLevering';
+                    }
+
+                    betalKnappen.setAttribute('data-bs-toggle', 'modal');
+                    betalKnappen.setAttribute('data-bs-target', targetModal);
                 }
-
-                betalKnappen.setAttribute('data-bs-toggle', 'modal');
-                betalKnappen.setAttribute('data-bs-target', targetModal);
             }
         }
 
-        // Først tjekkes om værelsesnummeret er indtastet ved at kalde checkVaerelsesnummer().
+        radiobuttons.forEach(radio => {
+            radio.addEventListener('change', function () {
+                updatePaymentMethod();
+            });
+        });
+
+        document.getElementById('vaerelsesnummer').addEventListener('input', function () {
+            if (!checkVaerelsesnummer()) {
+                betalKnappen.removeAttribute('data-bs-toggle');
+                betalKnappen.removeAttribute('data-bs-target');
+            } else {
+                updatePaymentMethod();
+            }
+        });
+
         betalKnappen.addEventListener('click', function (event) {
-            if (!checkVaerelsesnummer(event)) {
+            if (!checkVaerelsesnummer()) {
+                event.preventDefault();
                 return;
             }
 
-            updatePaymentMethod();
-
             const selectedPaymentMethod = document.querySelector('input[name="betaling"]:checked');
             if (selectedPaymentMethod) {
-                const targetModal = selectedPaymentMethod.getAttribute('data-bs-target');
-                // Trigger modalvinduet manuelt ved at skabe en ny Bootstrap modal og vise den.
-                const modal = new bootstrap.Modal(document.querySelector(targetModal));
-                modal.show();
+                const targetModal = betalKnappen.getAttribute('data-bs-target');
+                if (targetModal) {
+                    const modal = new bootstrap.Modal(document.querySelector(targetModal));
+                    modal.show();
+                }
             } else {
                 event.preventDefault(); // Forhindre standardhandling, hvis ingen betalingsmetode er valgt
                 alert('Vælg venligst en betalingsmetode.');
             }
         });
 
-        radiobuttons.forEach(radio => {
-            radio.addEventListener('change', function () {
-                updatePaymentMethod(); // Opdater data-bs-target attributten ved ændring af betalingsmetode.
+        // Tjek værelsesnummer, når modalvinduet forsøges åbnet
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            modal.addEventListener('show.bs.modal', function (event) {
+                if (!checkVaerelsesnummer()) {
+                    event.preventDefault();
+                    betalKnappen.removeAttribute('data-bs-toggle');
+                    betalKnappen.removeAttribute('data-bs-target');
+                }
+            });
+
+            modal.addEventListener('hidden.bs.modal', function () {
+                document.body.classList.remove('modal-open');
+                document.querySelector('.modal-backdrop').remove();
             });
         });
     });
