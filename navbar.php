@@ -25,7 +25,7 @@ $lastProdId = isset($_SESSION['lastProdId']) ? $_SESSION['lastProdId'] : '';
                         <a href="Indkøbskurv.php" class="ms-4 pb-3 position-relative">
                             <img src="img/Indkøbskurv.webp" alt="Indkøbskurv" class="img-fluid" style="width: 60px">
                             <?php if ($cartCount > 0): ?>
-                                <span id="cart-badge" class="fs-3 position-absolute top-25 start-100 translate-middle badge bg-baggrundsfarve rounded-circle">
+                                <span id="cart-badge" class="fs-3 position-absolute top-25 start-100 translate-middle badge bg-baggrundsfarve text-primærtekstfarve rounded-circle">
                                     <?php echo $cartCount; ?>
                                 </span>
                             <?php endif; ?>
