@@ -125,21 +125,21 @@ $prodId = isset($_GET['prodId']) ? $_GET['prodId'] : '';
                                         </button>
 
                                         <div class="modal fade" id="sletModal<?php echo $productId; ?>" tabindex="-1" aria-labelledby="sletModalLabel<?php echo $productId; ?>" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered">
-                                                <div class="modal-content border-outlinefarve" style="border-radius: 30px">
+                                            <div class="modal-dialog modal-dialog-centered" style="max-width: 600px;">
+                                                <div class="modal-content border-outlinefarve">
                                                     <div class="modal-header">
                                                         <div class="modal-title text-primærtekstfarve" id="sletModalLabel<?php echo $productId; ?>"></div>
                                                         <button type="button" class="btn-close btn-close-primærfarve lukkeknap" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
-                                                    <div class="modal-body text-primærtekstfarve brødtekst">
-                                                        <p class="fw-bold fs-1">Slet din bestilling</p>
-                                                        <p class="fs-2 fw-medium">Er du sikker på at du vil slette dette fra din bestilling?</p>
+                                                    <div class="modal-body text-primærtekstfarve brødtekst ms-1">
+                                                        <p class="fw-bold fs-1 pb-3">Slet din bestilling</p>
+                                                        <p class="fs-2 fw-medium pb-3">Er du sikker på at du vil slette dette fra din bestilling?</p>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve fs-4 fw-medium brødtekst" data-bs-dismiss="modal" style="width: 160px;">Annuller</button>
+                                                        <button type="button" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve fs-3 fw-medium brødtekst" data-bs-dismiss="modal" style="width: 180px;">Annuller</button>
                                                         <form action="removeFromCart.php" method="post" style="display:inline;">
                                                             <input type="hidden" name="productId" value="<?php echo $productId; ?>">
-                                                            <button type="submit" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve fs-4 fw-medium brødtekst" style="width: 160px;">Ja, slet</button>
+                                                            <button type="submit" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve fs-3 fw-medium brødtekst" style="width: 180px;">Slet</button>
                                                         </form>
                                                     </div>
                                                 </div>
