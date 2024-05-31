@@ -230,8 +230,8 @@ include("navbar.php");
                 <?php } ?>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-secondary me-3 btn-lg rounded-pill btn-sekundærknap brødtekst text-primærtekstfarve border-outlinefarve" style="width: 160px;">Annuller</a>
-                <a href="#" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap brødtekst text-sekundærekstfarve border-outlinefarve" style="width: 160px;">Gem</a>
+                <a href="#" class="btn btn-secondary fs-3 me-3 btn-lg rounded-pill btn-sekundærknap brødtekst text-primærtekstfarve border-outlinefarve" style="width: 180px;">Annuller</a>
+                <a href="#" class="btn btn-primary fs-3 me-3 btn-lg rounded-pill btn-primærknap brødtekst text-sekundærekstfarve border-outlinefarve" style="width: 180px;">Gem</a>
             </div>
         </div>
     </div>
