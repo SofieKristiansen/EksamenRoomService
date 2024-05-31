@@ -17,19 +17,18 @@ $lastProdId = isset($_SESSION['lastProdId']) ? $_SESSION['lastProdId'] : '';
                     <div>
                         <a href="forside.php"><img src="img/LogoStrandV1.png" alt="Logo" class="img-fluid" style="width: 150px"></a>
                     </div>
-                    <div class="ms-auto mt-2">
-                        <a href="#" class="" data-bs-toggle="modal" data-bs-target="#sprogModal">
-                            <img src="img/globus.webp" alt="" class="img-fluid col-1" style="width: 60px">
+                    <div class="ms-auto mt-2 d-flex align-items-center">
+                        <a href="#" class="d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#sprogModal">
+                            <span class="fs-2 text-primærtekstfarve fw-medium me-2">DA</span>
+                            <img src="img/globus.webp" alt="" class="img-fluid" style="width: 60px">
                         </a>
-                        <a href="Indkøbskurv.php" class="ms-4 position-relative">
-                            <img src="img/Indkøbskurv.webp" alt="Indkøbskurv" class="img-fluid col-1" style="width: 60px">
-                            <span id="cart-badge" class="fs-3 position-absolute top-25 start-100 translate-middle badge bg-baggrundsfarve rounded-circle">
-                                <?php if ($cartCount > 0): ?>
+                        <a href="Indkøbskurv.php" class="ms-4 pb-3 position-relative">
+                            <img src="img/Indkøbskurv.webp" alt="Indkøbskurv" class="img-fluid" style="width: 60px">
+                            <?php if ($cartCount > 0): ?>
+                                <span id="cart-badge" class="fs-3 position-absolute top-25 start-100 translate-middle badge bg-baggrundsfarve rounded-circle">
                                     <?php echo $cartCount; ?>
-                                <?php else: ?>
-                                    <span class="visually-hidden"></span>
-                                <?php endif; ?>
-                            </span>
+                                </span>
+                            <?php endif; ?>
                         </a>
                     </div>
                 </div>
@@ -38,7 +37,6 @@ $lastProdId = isset($_SESSION['lastProdId']) ? $_SESSION['lastProdId'] : '';
         </div>
     </div>
 </nav>
-
 
 <!-- Sprog modal -->
 <div class="modal fade" id="sprogModal" tabindex="-1" aria-labelledby="sprogModalLabel" aria-hidden="true">
