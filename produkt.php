@@ -174,21 +174,21 @@ include("navbar.php");
 
 <!-- Din bestilling modal-vindue -->
 <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;">
         <div class="modal-content border-outlinefarve" style="border-radius: 30px">
             <div class="modal-header">
-                <div class="modal-title text-primærtekstfarve" id="exampleModalLabel"></div>
+                <div class="modal-title me-5 mt-3" id="exampleModalLabel"></div>
                 <button type="button" class="btn-close btn-close-primærfarve lukkeknap" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body text-primærtekstfarve brødtekst">
-                <p class="fs-1 fw-bold">Din bestilling</p>
-                <p class="fs-2 fw-medium"><?php echo $produkt->prodNavn; ?></p>
-                <p class="fs-2 fw-medium">Tilvalg:</p>
-                <p class="fs-2 fw-medium">Antal: <span id="modalQuantity"></span></p>
+            <div class="modal-body text-primærtekstfarve brødtekst ms-3 mt-3 mb-3">
+                <p class="fs-1 fw-bold pb-4">Din bestilling</p>
+                <p class="fs-2 fw-medium pb-4"><?php echo $produkt->prodNavn; ?></p>
+                <p class="fs-2 fw-medium pb-4">Tilvalg:</p>
+                <p class="fs-2 fw-medium pb-4">Antal: <span id="modalQuantity"></span></p>
             </div>
             <div class="modal-footer">
                 <a href="produkter.php?kategoriId=<?php echo htmlspecialchars($_GET['kategoriId']); ?>" class="btn me-3 btn-lg rounded-pill btn-sekundærknap text-primærtekstfarve border-outlinefarve fs-3 fw-medium brødtekst" style="width: 180px;">Bestil mere</a>
-                <a href="Indkøbskurv.php?prodId=<?php echo htmlspecialchars($_GET['prodId']); ?>&kategoriId=<?php echo htmlspecialchars($_GET['kategoriId']); ?>" class="btn btn-primary me-3 btn-lg rounded-pill btn-primærknap text-sekundærtekstfarve fs-3 fw-medium brødtekst" style="width: 180px;">Gå til kurv</a>
+                <a href="Indkøbskurv.php?prodId=<?php echo htmlspecialchars($_GET['prodId']); ?>&kategoriId=<?php echo htmlspecialchars($_GET['kategoriId']); ?>" class="btn btn-primary btn-lg rounded-pill btn-primærknap text-sekundærtekstfarve fs-3 fw-medium brødtekst" style="width: 180px;">Gå til kurv</a>
             </div>
         </div>
     </div>

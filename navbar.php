@@ -42,23 +42,23 @@ $lastProdId = isset($_SESSION['lastProdId']) ? $_SESSION['lastProdId'] : '';
 
 <!-- Sprog modal -->
 <div class="modal fade" id="sprogModal" tabindex="-1" aria-labelledby="sprogModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;">
         <div class="modal-content border-outlinefarve">
             <div class="modal-header">
-                <h5 class="modal-title" id="sprogModalLabel"></h5>
+                <h5 class="modal-title me-5 mt-3" id="sprogModalLabel"></h5>
                 <button type="button" class="btn-close btn-close-primærfarve lukkeknap" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body text-primærtekstfarve brødtekst">
-                <p class="fs-1 fw-bold mb-4">Hvilket sprog foretrækker du?</p>
-                <div class="form-check fs-2 mb-4">
+            <div class="modal-body text-primærtekstfarve brødtekst ms-3 mt-3 mb-3">
+                <p class="fs-1 fw-bold pb-4">Hvilket sprog foretrækker du?</p>
+                <div class="form-check fs-1 pb-4">
                     <input class="form-check-input form-check-input" type="radio" name="sprog" id="dansk" value="dansk" checked>
                     <label class="form-check-label ms-2" for="dansk">Dansk</label>
                 </div>
-                <div class="form-check fs-2 mb-4">
+                <div class="form-check fs-1 pb-4">
                     <input class="form-check-input" type="radio" name="sprog" id="english" value="english">
                     <label class="form-check-label ms-2" for="english">English</label>
                 </div>
-                <div class="form-check fs-2 mb-4">
+                <div class="form-check fs-1 pb-4">
                     <input class="form-check-input" type="radio" name="sprog" id="deutsch" value="deutsch">
                     <label class="form-check-label ms-2" for="deutsch">Deutsch</label>
                 </div>
