@@ -5,6 +5,8 @@ session_start();
 $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 $kategoriId = isset($_GET['kategoriId']) ? $_GET['kategoriId'] : '';
 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="da">
@@ -240,9 +242,11 @@ include("navbar.php");
                                     din mad. Beløbet opkræves ved check ud af hotellet.</p>
                             </div>
                             <div class="modal-footer">
-                                <a href="Pauseskearm.php"
-                                   class="btn fs-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve"
-                                   style="width: 180px;">Afslut</a>
+                                <form action="clearCartAndRedirect.php" method="post">
+                                    <button type="submit" class="btn me-3 fs-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve brødtekst" style="width: 180px;">
+                                        Afslut
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -272,9 +276,11 @@ include("navbar.php");
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <a href="Pauseskearm.php"
-                                   class="btn me-3 fs-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve brødtekst"
-                                   style="width: 180px;">Afslut</a>
+                                <form action="clearCartAndRedirect.php" method="post">
+                                    <button type="submit" class="btn me-3 fs-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve brødtekst" style="width: 180px;">
+                                        Afslut
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -301,8 +307,6 @@ include("navbar.php");
             errorElement.style.display = 'block';
             event.preventDefault(); // Forhindre standardhandling
             return false;
-
-            // Hvis værelsesnummeret er udfyldt korrekt, fjernes fejlmeddelelsen.
         } else {
             errorElement.style.display = 'none';
             return true;
@@ -311,17 +315,12 @@ include("navbar.php");
 
     // Venter på, at hele dokumentet er færdig med at blive indlæst, før det tilføjer event listeners.
     document.addEventListener('DOMContentLoaded', function () {
-
         // Finder alle radioknapper for betalingsmetoder og betalingsknappen.
         const radiobuttons = document.querySelectorAll('input[name="betaling"]');
         const betalKnappen = document.getElementById('betalKnappen');
 
-        // Først tjekkes om værelsesnummeret er indtastet ved at kalde checkVaerelsesnummer().
-        betalKnappen.addEventListener('click', function (event) {
-            if (!checkVaerelsesnummer(event)) {
-                return;
-            }
-
+        // Funktion til at opdatere data-bs-target attributten baseret på valgt betalingsmetode.
+        function updatePaymentMethod() {
             const selectedPaymentMethod = document.querySelector('input[name="betaling"]:checked');
             if (selectedPaymentMethod) {
                 const paymentMethod = selectedPaymentMethod.value;
@@ -337,7 +336,20 @@ include("navbar.php");
 
                 betalKnappen.setAttribute('data-bs-toggle', 'modal');
                 betalKnappen.setAttribute('data-bs-target', targetModal);
+            }
+        }
 
+        // Først tjekkes om værelsesnummeret er indtastet ved at kalde checkVaerelsesnummer().
+        betalKnappen.addEventListener('click', function (event) {
+            if (!checkVaerelsesnummer(event)) {
+                return;
+            }
+
+            updatePaymentMethod();
+
+            const selectedPaymentMethod = document.querySelector('input[name="betaling"]:checked');
+            if (selectedPaymentMethod) {
+                const targetModal = selectedPaymentMethod.getAttribute('data-bs-target');
                 // Trigger modalvinduet manuelt ved at skabe en ny Bootstrap modal og vise den.
                 const modal = new bootstrap.Modal(document.querySelector(targetModal));
                 modal.show();
@@ -349,10 +361,11 @@ include("navbar.php");
 
         radiobuttons.forEach(radio => {
             radio.addEventListener('change', function () {
-                betalKnappen.removeAttribute('data-bs-target'); // Fjern data-bs-target attribut
+                updatePaymentMethod(); // Opdater data-bs-target attributten ved ændring af betalingsmetode.
             });
         });
     });
+
 </script>
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
