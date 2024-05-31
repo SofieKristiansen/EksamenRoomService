@@ -272,7 +272,7 @@ include("navbar.php");
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <a href="forside.php"
+                                <a href="Pauseskearm.php"
                                    class="btn me-3 fs-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve brødtekst"
                                    style="width: 180px;">Afslut</a>
                             </div>
