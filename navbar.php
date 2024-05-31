@@ -42,7 +42,7 @@ $lastProdId = isset($_SESSION['lastProdId']) ? $_SESSION['lastProdId'] : '';
 
 <!-- Sprog modal -->
 <div class="modal fade" id="sprogModal" tabindex="-1" aria-labelledby="sprogModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 650px;">
         <div class="modal-content border-outlinefarve">
             <div class="modal-header">
                 <h5 class="modal-title me-5 mt-3" id="sprogModalLabel"></h5>

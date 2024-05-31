@@ -175,7 +175,7 @@ include("navbar.php");
 <!-- Din bestilling modal-vindue -->
 <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;">
-        <div class="modal-content border-outlinefarve" style="border-radius: 30px">
+        <div class="modal-content border-outlinefarve">
             <div class="modal-header">
                 <div class="modal-title me-5 mt-3" id="exampleModalLabel"></div>
                 <button type="button" class="btn-close btn-close-primærfarve lukkeknap" data-bs-dismiss="modal" aria-label="Close"></button>

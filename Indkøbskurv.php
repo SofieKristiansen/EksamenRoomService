@@ -77,7 +77,7 @@ $prodId = isset($_GET['prodId']) ? $_GET['prodId'] : '';
 
                                         <!-- Tilpas Modal -->
                                         <div class="modal fade" id="tilpasModal<?php echo $productId; ?>" tabindex="-1" aria-labelledby="tilpasModalLabel<?php echo $productId; ?>" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" style="max-width: 600px;">
+                                            <div class="modal-dialog modal-dialog-centered" style="max-width: 650px;">
                                                 <div class="modal-content border-outlinefarve">
                                                     <div class="modal-header">
                                                         <button type="button" class="btn-close btn-close-primærfarve lukkeknap" data-bs-dismiss="modal" aria-label="Close"></button>
