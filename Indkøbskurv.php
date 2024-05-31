@@ -171,7 +171,7 @@ $prodId = isset($_GET['prodId']) ? $_GET['prodId'] : '';
                         <?php echo number_format($totalPris, 2); ?> kr.
                     </div>
                     <a href="DinBetaling.php?kategoriId=<?php echo htmlspecialchars($kategoriId); ?>">
-                        <button type="button" class="btn btn-lg shadow rounded-pill btn-primærknap fs-3 brødtekst ms-3 me-5">
+                        <button type="button" class="btn btn-lg shadow rounded-pill btn-primærknap fs-2 brødtekst ms-3 me-5" style="width: 150px;">
                             Fortsæt
                         </button>
                     </a>
