@@ -216,7 +216,7 @@ include("navbar.php");
                         </div>
 
                         <div class="modal-footer">
-                            <a href="forside.php"
+                            <a href="#"
                                class="btn me-3 fs-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve"
                                style="width: 180px;">Fortsæt</a>
                         </div>
@@ -240,7 +240,7 @@ include("navbar.php");
                                     din mad. Beløbet opkræves ved check ud af hotellet.</p>
                             </div>
                             <div class="modal-footer">
-                                <a href="forside.php"
+                                <a href="Pauseskearm.php"
                                    class="btn fs-3 btn-lg rounded-pill btn-primærknap text-sekundærekstfarve border-outlinefarve"
                                    style="width: 180px;">Afslut</a>
                             </div>
