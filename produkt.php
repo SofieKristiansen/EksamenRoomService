@@ -130,7 +130,7 @@ include("navbar.php");
                                     <form id="addToCartForm" action="addToCart.php?kategoriId=<?php echo htmlspecialchars($_GET['kategoriId']); ?>" method="post">
                                         <input type="hidden" name="productId" value="<?php echo $prodId; ?>">
                                         <input type="hidden" name="quantity" value="1" id="quantityInput">
-                                        <button type="submit" class="btn btn-lg shadow rounded-pill btn-primærknap fs-3 brødtekst ms-3 me-1" >
+                                        <button type="submit" class="btn btn-lg shadow rounded-pill btn-primærknap fs-3 brødtekst ms-3 me-1" data-bs-toggle="modal" data-bs-target="#modal">
                                             Læg i kurv
                                         </button>
                                     </form>
