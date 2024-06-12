@@ -16,10 +16,14 @@ require "settings/init.php";
 </head>
 <body class="bg-baggrundsfarve" style="overflow-y: hidden;">
 
+
+<!-- Navbar -->
 <?php
 include("navbar.php");
 ?>
 
+
+<!-- Tilbagepil og brødkrummesti -->
 <div class="container-fluid pt-4">
     <div class="row">
         <div class="col-1"></div>
@@ -193,6 +197,7 @@ include("navbar.php");
         </div>
     </div>
 </div>
+
 
 <!-- Tilpas din bestilling modal-vindue -->
 <div class="modal fade" id="tilpasModal" tabindex="-1" aria-labelledby="tilpasModalLabel" aria-hidden="true">
